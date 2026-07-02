@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { useOptionalResourceMonitor } from "@/components/shared/ResourceMonitorProvider";
 import styles from "./playground.module.css";
-
 const TEMPLATES = [
   {
     label: "Explain simply",
@@ -34,7 +34,7 @@ export function PromptPlayground() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [checks, setChecks] = useState<Record<number, boolean>>({});
-
+  const resources = useOptionalResourceMonitor();
   async function handleRun() {
     setLoading(true);
     setOutput("");
@@ -50,6 +50,7 @@ export function PromptPlayground() {
       });
 
       const data = await res.json();
+      resources?.recordFromOrchestrate(data);
       const meta = data.meta ?? {};
       const guardNote =
         meta.inputGuardrails?.warnings?.length > 0

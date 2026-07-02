@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { notFound } from "next/navigation";
 
+import { DashboardResourceShell } from "@/components/layout/DashboardResourceShell";
 import { PROFILE_LABELS, type AudienceProfile } from "@/types/profiles";
 
 import styles from "@/components/layout/profile-shell.module.css";
@@ -107,7 +108,9 @@ export default async function ProfileLayout({
 
       </header>
 
-      <div className={styles.main}>{children}</div>
+      <DashboardResourceShell>
+        <div className={styles.main}>{children}</div>
+      </DashboardResourceShell>
 
     </div>
 

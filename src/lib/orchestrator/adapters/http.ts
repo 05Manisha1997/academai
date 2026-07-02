@@ -1,3 +1,4 @@
+import { estimateTokensFromText } from "@/lib/resource-footprint";
 import type { ModelAdapter, OrchestratorBackend } from "../types";
 
 /**
@@ -16,6 +17,7 @@ function createHttpAdapter(
   return {
     name,
     async generate({ prompt, system, route, profile }) {
+      const started = Date.now();
       const url = process.env[envKey];
       if (!url) {
         throw new Error(`${envKey} is not configured`);
@@ -37,8 +39,21 @@ function createHttpAdapter(
         throw new Error(`${name} orchestrator error (${res.status}): ${err.slice(0, 200)}`);
       }
 
-      const data = (await res.json()) as { text?: string; output?: string };
-      return data.text ?? data.output ?? "";
+      const data = (await res.json()) as {
+        text?: string;
+        output?: string;
+        promptTokens?: number;
+        completionTokens?: number;
+        latencyMs?: number;
+      };
+      const text = data.text ?? data.output ?? "";
+      return {
+        text,
+        promptTokens:
+          data.promptTokens ?? estimateTokensFromText(`${system}\n${prompt}`),
+        completionTokens: data.completionTokens ?? estimateTokensFromText(text),
+        latencyMs: data.latencyMs ?? Date.now() - started,
+      };
     },
   };
 }

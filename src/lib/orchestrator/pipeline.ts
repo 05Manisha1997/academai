@@ -1,3 +1,4 @@
+import { buildResourceSnapshot } from "@/lib/resource-footprint";
 import { autogenAdapter, langgraphAdapter } from "./adapters/http";
 import { ollamaAdapter } from "./adapters/ollama";
 import { simulatedAdapter } from "./adapters/simulated";
@@ -55,6 +56,7 @@ export async function orchestrate(req: OrchestrateRequest): Promise<OrchestrateR
   const inputGuardrails = runInputGuardrails(req.prompt);
 
   if (inputGuardrails.blocked) {
+    const model = backend === "ollama" ? process.env.OLLAMA_MODEL ?? "llama2" : undefined;
     return {
       status: "blocked",
       text:
@@ -66,6 +68,13 @@ export async function orchestrate(req: OrchestrateRequest): Promise<OrchestrateR
         inputGuardrails,
         outputGuardrails: { passed: false, blocked: true, warnings: [] },
         disclosure: "Blocked before model call — no tokens spent.",
+        resources: buildResourceSnapshot({
+          activity: "prompt",
+          backend,
+          model,
+          blocked: true,
+          promptText: req.prompt,
+        }),
       },
     };
   }
@@ -74,9 +83,9 @@ export async function orchestrate(req: OrchestrateRequest): Promise<OrchestrateR
   const system = systemPromptForRoute(route, req.profile);
   const adapter = getAdapter(backend);
 
-  let raw: string;
+  let result;
   try {
-    raw = await adapter.generate({
+    result = await adapter.generate({
       prompt: req.prompt,
       system,
       route,
@@ -84,22 +93,34 @@ export async function orchestrate(req: OrchestrateRequest): Promise<OrchestrateR
     });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Model call failed";
+    const model = backend === "ollama" ? process.env.OLLAMA_MODEL ?? "llama2" : undefined;
     return {
       status: "blocked",
       text: `Orchestrator could not complete the request.\n\n${message}\n\nTip: set ORCHESTRATOR_BACKEND=simulated, or configure Ollama / LangGraph / AutoGen URLs.`,
       meta: {
         backend,
         route,
-        model: process.env.OLLAMA_MODEL,
+        model,
         inputGuardrails,
         outputGuardrails: { passed: false, blocked: true, warnings: [message] },
+        resources: buildResourceSnapshot({
+          activity: "prompt",
+          backend,
+          model,
+          blocked: true,
+          promptText: req.prompt,
+        }),
       },
     };
   }
 
+  const raw = result.text;
+
   const inputHadEuWarn = inputGuardrails.ruleHit?.kind === "eu";
   const outputGuardrails = runOutputGuardrails(raw, inputHadEuWarn);
   const sanitized = applyOutputGuardrails(raw, inputHadEuWarn);
+
+  const model = backend === "ollama" ? process.env.OLLAMA_MODEL ?? "llama2" : undefined;
 
   return {
     status: inputGuardrails.warnings.length > 0 ? "warn" : "ok",
@@ -107,10 +128,21 @@ export async function orchestrate(req: OrchestrateRequest): Promise<OrchestrateR
     meta: {
       backend,
       route,
-      model: backend === "ollama" ? process.env.OLLAMA_MODEL ?? "llama2" : undefined,
+      model,
       inputGuardrails,
       outputGuardrails,
       disclosure: "🤖 AI-generated · verify before trusting",
+      resources: buildResourceSnapshot({
+        activity: "prompt",
+        backend,
+        model,
+        blocked: false,
+        promptTokens: result.promptTokens,
+        completionTokens: result.completionTokens,
+        latencyMs: result.latencyMs,
+        promptText: req.prompt,
+        completionText: raw,
+      }),
     },
   };
 }
