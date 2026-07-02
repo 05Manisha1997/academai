@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import {
   analyze,
   cost,
@@ -28,6 +29,7 @@ function freshState(): SandboxState {
 
 export function CadetSandbox() {
   const [state, setState] = useState<SandboxState>(freshState);
+  const [iconError, setIconError] = useState(false);
   const transcriptRef = useRef<HTMLDivElement>(null);
 
   const draftAnalysis = useMemo(() => analyze(state.input), [state.input]);
@@ -269,9 +271,22 @@ export function CadetSandbox() {
     <div className={styles.shell}>
       <header className={styles.topBar}>
         <div className={styles.brand}>
-          <div className={styles.logo}>C</div>
+          <div className={styles.logo}>
+            {iconError ? (
+              "C"
+            ) : (
+              <Image
+                src="/brand/cadet-icon.png"
+                alt="Cadet"
+                width={28}
+                height={28}
+                className={styles.logoImg}
+                onError={() => setIconError(true)}
+              />
+            )}
+          </div>
           <div>
-            <div className={styles.brandText}>Cadet</div>
+            <div className={styles.brandText}>Prevent</div>
             <div className={styles.brandSub}>SANDBOX</div>
           </div>
         </div>

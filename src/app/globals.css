@@ -53,31 +53,31 @@
 }
 
 [data-profile="students-lecturers"] {
-  --aifa-bg: var(--cadet-paper, #f1eadb);
+  --aifa-bg: var(--cadet-paper, #eaf0fb);
   --aifa-primary: var(--cadet-accent, #2454cc);
   --aifa-primary-hover: #163a86;
   --aifa-accent: #2f5bea;
-  --aifa-text: var(--cadet-ink, #221e19);
-  --aifa-muted: var(--cadet-muted, #6e6557);
-  --aifa-surface: var(--cadet-panel, #fffdf8);
-  --aifa-border: var(--cadet-border, #e6decb);
+  --aifa-text: var(--cadet-ink, #1b2540);
+  --aifa-muted: var(--cadet-muted, #5c6a82);
+  --aifa-surface: var(--cadet-panel, #f8fbff);
+  --aifa-border: var(--cadet-border, #d9e1f0);
 
-  --cadet-paper: #f1eadb;
-  --cadet-panel: #fffdf8;
-  --cadet-rail: #f6f0e3;
-  --cadet-terminal: #fbf6ec;
-  --cadet-cream-card: #fbf6ec;
+  --cadet-paper: #eaf0fb;
+  --cadet-panel: #f8fbff;
+  --cadet-rail: #eef3fc;
+  --cadet-terminal: #f3f7fe;
+  --cadet-cream-card: #f4f8ff;
   --cadet-mint-card: #eef7f1;
-  --cadet-ink: #221e19;
-  --cadet-body: #544c40;
-  --cadet-muted: #6e6557;
-  --cadet-faint: #9a8f7c;
+  --cadet-ink: #1b2540;
+  --cadet-body: #414b63;
+  --cadet-muted: #5c6a82;
+  --cadet-faint: #8b95a9;
   --cadet-accent: #2454cc;
   --cadet-accent-shadow: #163a86;
   --cadet-green: #1f9e6f;
   --cadet-green-text: #1f8a5f;
-  --cadet-border: #e6decb;
-  --cadet-dot-idle: #e0d7c4;
+  --cadet-border: #d9e1f0;
+  --cadet-dot-idle: #c8d3e8;
   --cadet-display-font: "Segoe UI", system-ui, sans-serif;
   --cadet-body-font: "Segoe UI", system-ui, sans-serif;
   --cadet-mono-font: ui-monospace, "Cascadia Code", monospace;

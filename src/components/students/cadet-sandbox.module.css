@@ -25,16 +25,20 @@
 }
 
 .logo {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--cadet-accent);
-  color: #fff;
-  font-weight: 800;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 0 var(--cadet-accent-shadow);
+  color: var(--cadet-accent);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+
+.logoImg {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .brandText {
@@ -298,15 +302,15 @@
 
 .bubbleUser {
   background: var(--cadet-ink);
-  color: #f4eee2;
+  color: #eef2fb;
   border-radius: 16px 16px 4px 16px;
   font-family: var(--cadet-mono-font);
 }
 
 .bubbleAgent {
   background: #fff;
-  color: #2a251f;
-  border: 1px solid #eadfcb;
+  color: var(--cadet-ink);
+  border: 1px solid var(--cadet-border);
   border-radius: 16px 16px 16px 4px;
 }
 
@@ -342,9 +346,9 @@
 .composer {
   margin: 0 1rem 1rem;
   background: #fff;
-  border: 2px solid var(--cadet-composer-border, #eadfcb);
+  border: 2px solid var(--cadet-composer-border, #d9e1f0);
   border-radius: 13px;
-  box-shadow: 0 6px 22px rgba(60, 45, 20, 0.06);
+  box-shadow: 0 6px 22px rgba(27, 37, 64, 0.07);
   overflow: hidden;
 }
 
@@ -562,7 +566,7 @@
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(60, 45, 20, 0.14);
+  box-shadow: 0 24px 60px rgba(27, 37, 64, 0.16);
   animation: cadetPop 0.22s ease;
 }
 
