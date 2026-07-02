@@ -17,7 +17,7 @@ export function StudentsDashboard() {
           <ul className={styles.linkList}>
             <li>
               <Link href="/dashboard/students-lecturers/playground">
-                🧪 Cadet Sandbox (prompt coach)
+                🧪 Prompt Sandbox (prompt coach)
               </Link>
             </li>
             <li>

@@ -5,6 +5,9 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { LEARN_TOPICS } from "@/lib/site-sections";
 import styles from "./home.module.css";
 
+const FEATURED_LEARN =
+  LEARN_TOPICS.find((topic) => "featured" in topic && topic.featured) ?? LEARN_TOPICS[0];
+
 export default function HomePage() {
   return (
     <div className={styles.landing} data-section="home">
@@ -32,17 +35,13 @@ export default function HomePage() {
             <span className={styles.pillarBadge}>01</span>
             <h2 className={styles.pillarTitle}>Learn</h2>
             <p className={styles.pillarDesc}>
-              Build understanding with clear concepts, plain language, and readable lessons.
+              Gain real knowledge about AI — ideas that stick, in language anyone can follow.
             </p>
-            <div className={styles.subCategories}>
-              {LEARN_TOPICS.map((topic) => (
-                <Link key={topic.label} href={topic.href} className={styles.subCategoryLink}>
-                  {topic.label}
-                </Link>
-              ))}
-            </div>
-            <Link href="/learn" className={styles.pillarCta}>
-              Explore Learn →
+            <Link href={FEATURED_LEARN.href} className={styles.primaryCta}>
+              {"ctaLabel" in FEATURED_LEARN ? FEATURED_LEARN.ctaLabel : FEATURED_LEARN.label} →
+            </Link>
+            <Link href="/learn" className={styles.secondaryCta}>
+              All learn topics
             </Link>
           </article>
 
@@ -64,10 +63,10 @@ export default function HomePage() {
             <span className={styles.pillarBadge}>03</span>
             <h2 className={styles.pillarTitle}>Prevent</h2>
             <p className={styles.pillarDesc}>
-              Prompt safely with guardrails, coaching, and local Llama 2 in Cadet Sandbox.
+              Prompt safely with guardrails, coaching, and local Llama 2 in Prompt Sandbox.
             </p>
             <Link href="/prevent/sandbox" className={styles.primaryCta}>
-              Cadet Sandbox →
+              Prompt Sandbox →
             </Link>
             <Link href="/prevent" className={styles.secondaryCta}>
               About Prevent

@@ -26,6 +26,7 @@ interface ModuleRunnerProps {
 export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
   const { track } = useEngagement();
   const resources = useOptionalResourceMonitor();
+  const [screen, setScreen] = useState<"welcome" | "play">("welcome");
   const [stepIndex, setStepIndex] = useState(0);
   const [stepScores, setStepScores] = useState<Record<string, number>>({});
   const [stepComplete, setStepComplete] = useState(false);
@@ -37,16 +38,22 @@ export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
   const isLast = stepIndex === module.steps.length - 1;
 
   useEffect(() => {
+    if (screen !== "play") return;
     track("module_started");
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- fire once per module mount
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- fire once when lesson starts
+  }, [screen]);
 
   useEffect(() => {
-    if (!step) return;
+    if (screen !== "play" || !step) return;
     setStepComplete(false);
     setHintShown(false);
     track("step_viewed", { stepId: step.id });
-  }, [step, track]);
+  }, [step, track, screen]);
+
+  function startLesson() {
+    setScreen("play");
+    track("step_viewed", { stepId: "lesson-welcome" });
+  }
 
   const handleStepScore = useCallback(
     (score: number) => {
@@ -124,10 +131,47 @@ export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
     );
   }
 
+  if (screen === "welcome") {
+    return (
+      <div className={styles.runner}>
+        <Link href="/learn" className={styles.back}>
+          ← Back to Learn
+        </Link>
+        <div className={styles.welcome}>
+          <div className={styles.bigLogo} aria-hidden>
+            📖
+          </div>
+          <h1 className={styles.welcomeTitle}>{module.title}</h1>
+          <p className={styles.welcomeLead}>{module.description}</p>
+          <div className={styles.steps}>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>1</span>
+              <p>See it — understand the idea in plain language.</p>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>2</span>
+              <p>Touch it — try a short activity with instant feedback.</p>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>3</span>
+              <p>Tweak it — build habits you can use in real life.</p>
+            </div>
+          </div>
+          <button type="button" className={styles.btnPrimary} onClick={startLesson}>
+            Start lesson →
+          </button>
+          <p className={styles.welcomeFooter}>
+            About {module.estimatedMinutes} min · no AI inference — just learning content.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={styles.runner}>
-      <Link href={`/dashboard/${profile}`} className={styles.back}>
-        ← Back
+      <Link href="/learn" className={styles.back}>
+        ← Back to Learn
       </Link>
 
       <header className={styles.header}>

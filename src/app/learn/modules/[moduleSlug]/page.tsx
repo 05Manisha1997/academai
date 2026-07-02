@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import { EngagementProvider } from "@/components/shared/EngagementProvider";
 import { ModuleRunner } from "@/components/learning/ModuleRunner";
 import { ElderlyScriptRunner } from "@/components/learning/ElderlyScriptRunner";
@@ -16,10 +15,6 @@ export default async function LearnModulePage({ params }: LearnModulePageProps) 
 
   return (
     <div className={styles.page}>
-      <Link href="/learn" className={styles.backLink}>
-        ← Back to Learn
-      </Link>
-
       {isScriptModule(moduleSlug) ? (
         <ScriptModule slug={moduleSlug} />
       ) : (

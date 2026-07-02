@@ -133,3 +133,120 @@
   font-size: 2rem;
   margin-bottom: 0.75rem;
 }
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--aifa-muted);
+}
+
+.backLink:hover {
+  color: var(--aifa-text);
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0.5rem;
+}
+
+.welcomeLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 24px;
+  background: var(--academai-navy, #1a2744);
+  color: #fff;
+  font-size: 2.75rem;
+  box-shadow: 0 10px 24px rgba(26, 39, 68, 0.2);
+}
+
+.welcomeTitle {
+  font-size: clamp(1.85rem, 5vw, 2.5rem);
+  font-weight: 800;
+  margin-top: 1.75rem;
+  line-height: 1.15;
+  color: var(--academai-navy, #1a2744);
+}
+
+.welcomeLead {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--aifa-muted);
+  max-width: 480px;
+  margin-top: 1rem;
+}
+
+.steps {
+  width: 100%;
+  max-width: 480px;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--aifa-border);
+  box-shadow: 0 4px 16px rgba(26, 39, 68, 0.04);
+}
+
+.stepNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--academai-gold-soft, #fff4e0);
+  color: var(--academai-gold-dark, #b45309);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.step p {
+  font-size: 1.05rem;
+  color: var(--aifa-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btnPrimary {
+  margin-top: 1.75rem;
+  border: none;
+  background: var(--academai-navy, #1a2744);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.08);
+}
+
+.welcomeFooter {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--aifa-muted);
+  max-width: 420px;
+  line-height: 1.5;
+}

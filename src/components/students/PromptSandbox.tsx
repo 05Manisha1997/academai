@@ -28,7 +28,7 @@ function freshState(): SandboxState {
   };
 }
 
-export function CadetSandbox() {
+export function PromptSandbox() {
   const [state, setState] = useState<SandboxState>(freshState);
   const [iconError, setIconError] = useState(false);
   const transcriptRef = useRef<HTMLDivElement>(null);
@@ -282,11 +282,11 @@ export function CadetSandbox() {
         <div className={styles.brand}>
           <div className={styles.logo}>
             {iconError ? (
-              "C"
+              "P"
             ) : (
               <Image
                 src="/brand/cadet-icon.png"
-                alt="Cadet"
+                alt="Prompt Sandbox"
                 width={28}
                 height={28}
                 className={styles.logoImg}
@@ -295,7 +295,7 @@ export function CadetSandbox() {
             )}
           </div>
           <div>
-            <div className={styles.brandText}>Prevent</div>
+            <div className={styles.brandText}>Prompt</div>
             <div className={styles.brandSub}>SANDBOX</div>
           </div>
         </div>

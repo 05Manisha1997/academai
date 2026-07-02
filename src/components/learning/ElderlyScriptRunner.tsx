@@ -18,6 +18,7 @@ interface ElderlyScriptRunnerProps {
 
 export function ElderlyScriptRunner({ script, profile }: ElderlyScriptRunnerProps) {
   const { track } = useEngagement();
+  const [screen, setScreen] = useState<"welcome" | "play">("welcome");
   const [beatIndex, setBeatIndex] = useState(0);
   const [quizDone, setQuizDone] = useState(false);
   const [checklist, setChecklist] = useState<string[]>([]);
@@ -36,6 +37,11 @@ export function ElderlyScriptRunner({ script, profile }: ElderlyScriptRunnerProp
       setChecklist([]);
     }
   }, [isLast, track]);
+
+  function startLesson() {
+    setScreen("play");
+    track("module_started");
+  }
 
   if (finished) {
     return (
@@ -62,14 +68,54 @@ export function ElderlyScriptRunner({ script, profile }: ElderlyScriptRunnerProp
     );
   }
 
+  if (screen === "welcome") {
+    return (
+      <div className={styles.runner}>
+        <Link href="/learn" className={styles.backLink}>
+          ← Back to Learn
+        </Link>
+        <div className={styles.welcome}>
+          <div className={styles.welcomeLogo} aria-hidden>
+            🐕
+          </div>
+          <h1 className={styles.welcomeTitle}>{script.title}</h1>
+          <p className={styles.welcomeLead}>
+            Meet AI through a friendly puppy analogy — plain language, large text, and optional
+            read-aloud.
+          </p>
+          <div className={styles.steps}>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>1</span>
+              <p>Read or listen to each short beat at your own pace.</p>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>2</span>
+              <p>Answer a quick question or tick a simple checklist.</p>
+            </div>
+            <div className={styles.step}>
+              <span className={styles.stepNum}>3</span>
+              <p>Finish with habits you can remember every day.</p>
+            </div>
+          </div>
+          <button type="button" className={styles.btnPrimary} onClick={startLesson}>
+            Start lesson →
+          </button>
+          <p className={styles.welcomeFooter}>
+            Nothing you do here is sent to an AI model — it&apos;s a safe lesson on your device.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   if (!beat) return null;
 
   const fullNarration = `${beat.onScreen.headline}. ${beat.narrator}`;
 
   return (
     <div className={styles.runner}>
-      <Link href={`/dashboard/${profile}`} style={{ color: "var(--aifa-muted)", fontSize: "0.95rem" }}>
-        ← Back
+      <Link href="/learn" className={styles.backLink}>
+        ← Back to Learn
       </Link>
 
       <h1 style={{ fontSize: "1.5rem", margin: "1rem 0 0.5rem", fontWeight: 800 }}>

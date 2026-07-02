@@ -19,9 +19,15 @@ const CHANNEL_ICON: Record<string, string> = {
 
 interface SpotTheScamRunnerProps {
   profile: AudienceProfile;
+  backHref?: string;
+  backLabel?: string;
 }
 
-export function SpotTheScamRunner({ profile }: SpotTheScamRunnerProps) {
+export function SpotTheScamRunner({
+  profile,
+  backHref = `/dashboard/${profile}`,
+  backLabel = "← Back",
+}: SpotTheScamRunnerProps) {
   const bank = useMemo(() => getScamBank(), []);
   const { track } = useEngagement();
 
@@ -107,8 +113,8 @@ export function SpotTheScamRunner({ profile }: SpotTheScamRunnerProps) {
   if (screen === "welcome") {
     return (
       <div className={styles.runner}>
-        <Link href={`/dashboard/${profile}`} className={styles.back}>
-          ← Back
+        <Link href={backHref} className={styles.back}>
+          {backLabel}
         </Link>
         <div className={styles.welcome}>
           <div className={styles.bigLogo}>🛡️</div>
@@ -149,8 +155,8 @@ export function SpotTheScamRunner({ profile }: SpotTheScamRunnerProps) {
 
   return (
     <div className={styles.runner}>
-      <Link href={`/dashboard/${profile}`} className={styles.back}>
-        ← Back
+      <Link href={backHref} className={styles.back}>
+        {backLabel}
       </Link>
 
       <div className={styles.actHead}>

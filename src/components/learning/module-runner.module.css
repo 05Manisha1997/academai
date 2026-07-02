@@ -151,3 +151,105 @@
 [data-profile="elderly"] .stepCard {
   padding: 2rem;
 }
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0.5rem;
+}
+
+.bigLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  background: var(--academai-navy, #1a2744);
+  color: #fff;
+  font-size: 2.5rem;
+  box-shadow: 0 10px 24px rgba(26, 39, 68, 0.2);
+}
+
+.welcomeTitle {
+  font-size: clamp(1.75rem, 5vw, 2.35rem);
+  font-weight: 800;
+  margin-top: 1.75rem;
+  line-height: 1.15;
+  color: var(--academai-navy, #1a2744);
+}
+
+.welcomeLead {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--aifa-muted);
+  max-width: 460px;
+  margin-top: 1rem;
+}
+
+.steps {
+  width: 100%;
+  max-width: 460px;
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--aifa-border);
+  box-shadow: 0 4px 16px rgba(26, 39, 68, 0.04);
+}
+
+.stepNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--academai-gold-soft, #fff4e0);
+  color: var(--academai-gold-dark, #b45309);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: var(--aifa-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.btnPrimary {
+  margin-top: 1.75rem;
+  border: none;
+  background: var(--academai-navy, #1a2744);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.08);
+}
+
+.welcomeFooter {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--aifa-muted);
+  max-width: 400px;
+}

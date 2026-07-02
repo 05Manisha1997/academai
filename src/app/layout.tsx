@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
   description:
 
-    "Learn, practice, and prevent — AI literacy for everyone with friendly lessons, Spot the Scam, and guardrailed Cadet Sandbox.",
+    "Learn, practice, and prevent — AI literacy for everyone with friendly lessons, Spot the Scam, and guardrailed Prompt Sandbox.",
 
   icons: {
 

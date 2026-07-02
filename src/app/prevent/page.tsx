@@ -15,7 +15,7 @@ export default function PreventPage() {
 
       <article className={styles.feature}>
         <div>
-          <h2 className={styles.featureTitle}>Prevent Sandbox</h2>
+          <h2 className={styles.featureTitle}>Prompt Sandbox</h2>
           <p className={styles.featureDesc}>
             A guardrailed space to write prompts, see safety scans, and run Llama 2 locally with
             full transparency.
@@ -27,7 +27,7 @@ export default function PreventPage() {
           </ul>
         </div>
         <Link href="/prevent/sandbox" className={styles.cta}>
-          Open Prevent Sandbox →
+          Open Prompt Sandbox →
         </Link>
       </article>
     </div>

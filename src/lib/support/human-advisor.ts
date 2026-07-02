@@ -5,7 +5,7 @@ import { assessQuestion } from "./triage";
 const HUMAN_FALLBACKS = [
   "Thanks for waiting — I'm a human advisor. Could you tell me a bit more about what you're trying to do on academAI? For example: which section (Learn, Practice, Prevent) and what felt confusing?",
   "I can help with that. To point you in the right direction, what have you already tried, and what outcome are you hoping for?",
-  "Good question. A human touch helps here — are you asking about a specific lesson, the Cadet Sandbox, or something about AI safety in general?",
+  "Good question. A human touch helps here — are you asking about a specific lesson, Prompt Sandbox, or something about AI safety in general?",
 ];
 
 function stripSimulatedArtifacts(text: string): string {
@@ -18,8 +18,8 @@ function stripSimulatedArtifacts(text: string): string {
 
 function pickHumanReply(prompt: string, wantsHuman: boolean): string {
   const lower = prompt.toLowerCase();
-  if (/\bsandbox|cadet|prompt\b/.test(lower)) {
-    return "I'm here to help with the Cadet Sandbox. Are you trying to write a better prompt, understand guardrails, or switch between Live and Simulated mode?";
+  if (/\bsandbox|prompt\b/.test(lower)) {
+    return "I'm here to help with Prompt Sandbox. Are you trying to write a better prompt, understand guardrails, or switch between Live and Simulated mode?";
   }
   if (/\blearn|lesson|module\b/.test(lower)) {
     return "Happy to walk you through a lesson. Which module are you on, and what part felt unclear — the instructions, a quiz, or something else?";
