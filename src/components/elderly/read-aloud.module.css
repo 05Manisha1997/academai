@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.readAloud {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: var(--aifa-radius-lg);
+  background: var(--aifa-primary);
+  color: var(--aifa-text-on-primary);
+}
+
+.readAloud:hover {
+  background: var(--aifa-primary-hover);
+}
+
+.readAloudActive {
+  animation: pulse-glow 2s infinite;
+}
+
+.stop {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  border-radius: var(--aifa-radius);
+  border: 2px solid var(--aifa-border);
+  color: var(--aifa-text);
+}

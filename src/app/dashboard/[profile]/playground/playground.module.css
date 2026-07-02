@@ -1,0 +1,23 @@
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--cadet-panel, var(--aifa-surface));
+  border-bottom: 1px solid var(--cadet-border, var(--aifa-border));
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: 1.5px solid var(--cadet-border, var(--aifa-border));
+  color: var(--cadet-muted, var(--aifa-muted));
+  background: transparent;
+}
+
+.tabActive {
+  background: var(--cadet-coral, var(--aifa-primary));
+  border-color: var(--cadet-coral, var(--aifa-primary));
+  color: #fff;
+}

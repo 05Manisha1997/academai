@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+/* self-hosted fonts — zero third-party requests (GDPR-safe) */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-0.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-1.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-2.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-3.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-4.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-5.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-6.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-7.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-8.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-9.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/cadet-10.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/cadet-11.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/cadet-12.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/cadet-13.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-14.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-15.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./fonts/cadet-16.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./fonts/cadet-17.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-18.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-19.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-20.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-21.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    .mono{font-family:'Space Mono',monospace;}
+    .disp{font-family:'Bricolage Grotesque',sans-serif;}
+  </style>
+</helmet>
+<div style="font-family:'Hanken Grotesk',sans-serif;background:#F1EADB;color:#221E19;width:100%;min-height:100vh;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <nav style="max-width:1180px;margin:0 auto;padding:26px 40px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:40px;height:40px;border-radius:12px;background:#FF5A36;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:24px;box-shadow:0 4px 0 #D63E1E;" class="disp">C</div>
+      <span class="disp" style="font-weight:800;font-size:23px;letter-spacing:-.02em;">Cadet</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:30px;font-size:16px;font-weight:600;color:#544C40;">
+      <span>Product</span><span>For schools</span><span>EU AI Act</span>
+      <a href="Cadet Sandbox.dc.html" style="text-decoration:none;background:#221E19;color:#F1EADB;padding:11px 20px;border-radius:11px;font-weight:700;">Try the Sandbox →</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:1180px;margin:0 auto;padding:54px 40px 70px;text-align:center;position:relative;">
+    <div class="mono" style="display:inline-block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#FF5A36;font-weight:700;background:#fff;border:1px solid #EADFCB;padding:9px 16px;border-radius:30px;margin-bottom:30px;">AI fluency for ages 12–18</div>
+    <h1 class="disp" style="font-weight:800;font-size:74px;line-height:1.04;letter-spacing:-.025em;margin:0 auto;max-width:980px;">Teach kids to use AI <span style="color:#FF5A36;">well</span> — before it teaches them.</h1>
+    <p style="font-size:24px;color:#544C40;line-height:1.5;max-width:760px;margin:28px auto 0;">Cadet is a safe sandbox where students practise prompting a simulated AI agent — no real tokens, no real risk — while a live coach grades their craft and EU-aware guardrails catch every wrong turn.</p>
+    <div style="display:flex;gap:14px;justify-content:center;margin-top:40px;">
+      <a href="Cadet Sandbox.dc.html" style="text-decoration:none;background:#FF5A36;color:#fff;padding:16px 30px;border-radius:13px;font-weight:700;font-size:18px;box-shadow:0 4px 0 #D63E1E;" class="disp">Launch the Sandbox</a>
+      <a href="Cadet Pitch Deck.dc.html" style="text-decoration:none;background:#fff;color:#221E19;padding:16px 30px;border-radius:13px;font-weight:700;font-size:18px;border:1.5px solid #E0D7C4;" class="disp">See the pitch</a>
+    </div>
+
+    <!-- hero mock -->
+    <div style="max-width:760px;margin:60px auto 0;background:#FBF6EC;border-radius:22px;border:1px solid #E6DECB;box-shadow:0 30px 70px rgba(60,45,20,.14);overflow:hidden;text-align:left;">
+      <div style="background:#221E19;padding:15px 20px;display:flex;align-items:center;gap:9px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#FF5A36;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#E8911C;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#1F9E6F;"></span>
+        <span class="mono" style="color:#A89C88;font-size:14px;margin-left:6px;">cadet · sandbox</span>
+      </div>
+      <div style="padding:24px;display:flex;flex-direction:column;gap:13px;">
+        <div style="align-self:flex-end;max-width:76%;background:#221E19;color:#F1EADB;border-radius:13px 13px 4px 13px;padding:12px 16px;font-size:15px;line-height:1.5;" class="mono">Act as a friendly history tutor. Explain WW1 causes in 4 bullets for a 14-year-old.</div>
+        <div style="align-self:flex-start;max-width:84%;background:#fff;border:1px solid #EADFCB;border-radius:13px 13px 13px 4px;padding:13px 17px;font-size:16px;line-height:1.55;">Nice — clear role, audience and format! Here are your four bullets…</div>
+        <div style="display:flex;gap:9px;flex-wrap:wrap;">
+          <span class="mono" style="font-size:13px;background:rgba(31,158,111,.14);color:#1F8A5F;padding:6px 11px;border-radius:8px;font-weight:700;">Quality 94</span>
+          <span class="mono" style="font-size:13px;background:#EDE4D2;color:#6E6557;padding:6px 11px;border-radius:8px;">31 tokens · €0.0008</span>
+          <span class="mono" style="font-size:13px;background:rgba(31,158,111,.14);color:#1F8A5F;padding:6px 11px;border-radius:8px;font-weight:700;">✓ Safe · ✓ EU OK</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROBLEM STRIP -->
+  <section style="background:#221E19;color:#F1EADB;padding:64px 40px;">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:30px;align-items:center;">
+      <div>
+        <div class="mono" style="font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#FF8466;font-weight:700;">The gap</div>
+        <p style="font-size:23px;line-height:1.45;margin:12px 0 0;color:#F1EADB;">Kids adopted AI overnight. Nobody taught them how.</p>
+      </div>
+      <div><div class="disp" style="font-weight:800;font-size:54px;color:#FF5A36;">8/10</div><p style="font-size:17px;color:#A89C88;margin:6px 0 0;">already use AI for schoolwork</p></div>
+      <div><div class="disp" style="font-weight:800;font-size:54px;color:#7FA0FF;">1/10</div><p style="font-size:17px;color:#A89C88;margin:6px 0 0;">were ever taught how</p></div>
+      <div><div class="disp" style="font-weight:800;font-size:54px;color:#F1EADB;">Feb&nbsp;2025</div><p style="font-size:17px;color:#A89C88;margin:6px 0 0;">EU AI literacy became law</p></div>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section style="max-width:1180px;margin:0 auto;padding:84px 40px 30px;">
+    <div class="mono" style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#FF5A36;font-weight:700;text-align:center;">How Cadet works</div>
+    <h2 class="disp" style="font-weight:800;font-size:46px;text-align:center;margin:14px 0 50px;letter-spacing:-.02em;">Four guardrails, one safe place to practise</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:22px;">
+      <div style="background:#fff;border-radius:20px;padding:34px 36px;border:1px solid #E6DECB;">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:14px;"><div style="width:46px;height:46px;border-radius:13px;background:rgba(255,90,54,.13);display:flex;align-items:center;justify-content:center;font-size:24px;">🛝</div><span class="mono" style="color:#FF5A36;font-weight:700;font-size:15px;">PRACTICE</span></div>
+        <div class="disp" style="font-weight:700;font-size:27px;">Token-free Sandbox</div>
+        <p style="font-size:18px;color:#544C40;line-height:1.5;margin:10px 0 0;">A simulated agent that feels real but spends nothing. Unlimited retries — and a live lesson in what tokens actually cost.</p>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:34px 36px;border:1px solid #E6DECB;">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:14px;"><div style="width:46px;height:46px;border-radius:13px;background:rgba(47,91,234,.12);display:flex;align-items:center;justify-content:center;font-size:24px;">⭐</div><span class="mono" style="color:#2F5BEA;font-weight:700;font-size:15px;">CRAFT</span></div>
+        <div class="disp" style="font-weight:700;font-size:27px;">Prompt Coach</div>
+        <p style="font-size:18px;color:#544C40;line-height:1.5;margin:10px 0 0;">Every draft scored live on context, role, format and specificity — so students learn vague-in, vague-out by feeling it.</p>
+      </div>
+      <div style="background:#fff;border-radius:20px;padding:34px 36px;border:1px solid #E6DECB;">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:14px;"><div style="width:46px;height:46px;border-radius:13px;background:rgba(226,61,67,.12);display:flex;align-items:center;justify-content:center;font-size:24px;">🛡️</div><span class="mono" style="color:#E23D43;font-weight:700;font-size:15px;">SAFETY</span></div>
+        <div class="disp" style="font-weight:700;font-size:27px;">Safety Scanner</div>
+        <p style="font-size:18px;color:#544C40;line-height:1.5;margin:10px 0 0;">Catches shared personal data, harmful requests and homework-cheating — and explains the risk instead of just saying no.</p>
+      </div>
+      <div style="background:#221E19;border-radius:20px;padding:34px 36px;color:#F1EADB;">
+        <div style="display:flex;align-items:center;gap:13px;margin-bottom:14px;"><div style="width:46px;height:46px;border-radius:13px;background:rgba(127,160,255,.18);display:flex;align-items:center;justify-content:center;font-size:24px;">🇪🇺</div><span class="mono" style="color:#7FA0FF;font-weight:700;font-size:15px;">COMPLIANCE</span></div>
+        <div class="disp" style="font-weight:700;font-size:27px;">EU AI Act Guardrails</div>
+        <p style="font-size:18px;color:#A89C88;line-height:1.5;margin:10px 0 0;">When a prompt crosses a line, a pop-up names the exact provision it touches — turning regulation into a teachable moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EU MAPPING -->
+  <section style="max-width:1180px;margin:0 auto;padding:60px 40px;">
+    <div style="background:#fff;border-radius:24px;border:1px solid #E6DECB;overflow:hidden;">
+      <div style="padding:34px 40px 8px;">
+        <div class="mono" style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#2F5BEA;font-weight:700;">Built on the regulation</div>
+        <h2 class="disp" style="font-weight:800;font-size:38px;margin:12px 0 4px;letter-spacing:-.02em;">Every feature maps to a real EU provision</h2>
+      </div>
+      <div style="padding:18px 24px 30px;">
+        <div style="display:flex;align-items:center;gap:18px;padding:18px 16px;border-bottom:1px solid #EDE4D2;">
+          <span class="mono" style="flex:0 0 86px;font-size:14px;font-weight:700;background:rgba(47,91,234,.12);color:#2F5BEA;padding:8px 0;border-radius:8px;text-align:center;">Art. 4</span>
+          <span style="flex:1;font-size:19px;font-weight:700;">AI literacy obligation</span>
+          <span style="flex:1.4;font-size:17px;color:#544C40;">Whole curriculum + Coach deliver baseline literacy for every student.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;padding:18px 16px;border-bottom:1px solid #EDE4D2;">
+          <span class="mono" style="flex:0 0 86px;font-size:14px;font-weight:700;background:rgba(226,61,67,.12);color:#E23D43;padding:8px 0;border-radius:8px;text-align:center;">Art. 5</span>
+          <span style="flex:1;font-size:19px;font-weight:700;">Prohibited practices</span>
+          <span style="flex:1.4;font-size:17px;color:#544C40;">Scanner hard-blocks manipulation, social scoring and emotion recognition.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;padding:18px 16px;border-bottom:1px solid #EDE4D2;">
+          <span class="mono" style="flex:0 0 86px;font-size:14px;font-weight:700;background:rgba(232,145,28,.14);color:#C77A12;padding:8px 0;border-radius:8px;text-align:center;">Art. 50</span>
+          <span style="flex:1;font-size:19px;font-weight:700;">Transparency &amp; deepfakes</span>
+          <span style="flex:1.4;font-size:17px;color:#544C40;">Lessons + pop-ups teach that AI-generated content must be clearly labelled.</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;padding:18px 16px;">
+          <span class="mono" style="flex:0 0 86px;font-size:14px;font-weight:700;background:rgba(31,158,111,.14);color:#1F8A5F;padding:8px 0;border-radius:8px;text-align:center;">GDPR</span>
+          <span style="flex:1;font-size:19px;font-weight:700;">Data minimisation</span>
+          <span style="flex:1.4;font-size:17px;color:#544C40;">Prompts coach students to share the least personal data possible — ideally none.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section style="max-width:1180px;margin:0 auto;padding:50px 40px 70px;">
+    <h2 class="disp" style="font-weight:800;font-size:42px;text-align:center;margin:0 0 44px;letter-spacing:-.02em;">Built for the whole classroom</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+      <div style="background:#FBF6EC;border-radius:20px;padding:32px 30px;border:1px solid #EADFCB;">
+        <div style="font-size:34px;">🧑‍🎓</div>
+        <div class="disp" style="font-weight:700;font-size:24px;margin:12px 0 8px;">Students</div>
+        <p style="font-size:17px;color:#544C40;line-height:1.5;margin:0;">Level up through missions, earn a real skill, and build instincts that keep them safe online.</p>
+      </div>
+      <div style="background:#FBF6EC;border-radius:20px;padding:32px 30px;border:1px solid #EADFCB;">
+        <div style="font-size:34px;">🧑‍🏫</div>
+        <div class="disp" style="font-weight:700;font-size:24px;margin:12px 0 8px;">Teachers</div>
+        <p style="font-size:17px;color:#544C40;line-height:1.5;margin:0;">A ready curriculum, no AI expertise required, with assignments and progress at a glance.</p>
+      </div>
+      <div style="background:#FBF6EC;border-radius:20px;padding:32px 30px;border:1px solid #EADFCB;">
+        <div style="font-size:34px;">🏫</div>
+        <div class="disp" style="font-weight:700;font-size:24px;margin:12px 0 8px;">Schools</div>
+        <p style="font-size:17px;color:#544C40;line-height:1.5;margin:0;">One-click evidence of Article 4 AI-literacy training — compliance handled, not homework.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:#FF5A36;color:#fff;padding:78px 40px;text-align:center;">
+    <h2 class="disp" style="font-weight:800;font-size:50px;letter-spacing:-.02em;margin:0 auto;max-width:840px;line-height:1.08;">Give every student a safe place to get good at AI</h2>
+    <p style="font-size:21px;color:#FFE2D8;max-width:640px;margin:22px auto 38px;line-height:1.5;">Start a free classroom in minutes. No setup, no real tokens, no risk.</p>
+    <div style="display:flex;gap:14px;justify-content:center;">
+      <a href="Cadet Sandbox.dc.html" style="text-decoration:none;background:#fff;color:#221E19;padding:16px 32px;border-radius:13px;font-weight:700;font-size:18px;" class="disp">Launch the Sandbox</a>
+      <a href="mailto:hello@cadet.education" style="text-decoration:none;background:rgba(255,255,255,.16);color:#fff;padding:16px 32px;border-radius:13px;font-weight:700;font-size:18px;border:1.5px solid rgba(255,255,255,.4);" class="disp">Book a school demo</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#221E19;color:#A89C88;padding:40px;">
+    <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:11px;">
+        <div style="width:34px;height:34px;border-radius:10px;background:#FF5A36;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;" class="disp">C</div>
+        <span class="disp" style="font-weight:800;font-size:19px;color:#F1EADB;">Cadet</span>
+      </div>
+      <span class="mono" style="font-size:14px;">AI fluency for the next generation · Built for the EU AI Act era</span>
+      <span class="mono" style="font-size:14px;">hello@cadet.education</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

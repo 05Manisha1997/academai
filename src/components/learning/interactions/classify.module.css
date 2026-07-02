@@ -1,0 +1,74 @@
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--aifa-radius);
+  border: 2px solid var(--aifa-border);
+  background: var(--aifa-surface);
+  flex-wrap: wrap;
+}
+
+.itemLabel {
+  font-weight: 600;
+  flex: 1;
+  min-width: 140px;
+}
+
+.binButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.binBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 2px solid var(--aifa-border);
+  color: var(--aifa-text);
+  transition: all 0.15s;
+}
+
+.binBtnActiveReal {
+  background: color-mix(in srgb, var(--aifa-success) 25%, transparent);
+  border-color: var(--aifa-success);
+}
+
+.binBtnActiveFake {
+  background: color-mix(in srgb, var(--aifa-danger) 20%, transparent);
+  border-color: var(--aifa-danger);
+}
+
+.itemCorrect {
+  border-color: var(--aifa-success);
+}
+
+.itemWrong {
+  border-color: var(--aifa-danger);
+}
+
+.scoreBar {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+[data-profile="under-14"] .item {
+  border-radius: 16px;
+  font-size: 1.05rem;
+}
+
+[data-profile="elderly"] .itemLabel {
+  font-size: 1.15rem;
+}
+
+[data-profile="elderly"] .binBtn {
+  font-size: 1rem;
+  padding: 0.65rem 1.15rem;
+}

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="820" viewBox="0 0 1040 820" role="img" aria-label="academAI technical architecture">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#4a5568"/>
+    </marker>
+    <style>
+      .zone { fill: #f7fafc; stroke: #2d3748; stroke-width: 1.5; }
+      .zone-planned { fill: #f7fafc; stroke: #2d3748; stroke-width: 1.5; stroke-dasharray: 8 4; }
+      .zone-header { fill: #edf2f7; }
+      .zone-title { font: 700 11px sans-serif; fill: #1a202c; }
+      .zone-sub { font: 400 9px sans-serif; fill: #718096; }
+      .box { fill: #ffffff; stroke: #cbd5e0; stroke-width: 1; }
+      .box-planned { fill: #ffffff; stroke: #cbd5e0; stroke-width: 1; stroke-dasharray: 5 3; }
+      .box-title { font: 600 11px sans-serif; fill: #1a202c; }
+      .box-sub { font: 400 9px sans-serif; fill: #718096; }
+      .conn { fill: none; stroke: #4a5568; stroke-width: 1.5; marker-end: url(#arrow); }
+      .pipe { stroke: #3182ce; stroke-width: 1.5; marker-end: url(#arrow); }
+      .label { font: 400 9px sans-serif; fill: #718096; }
+      .doc-title { font: 700 16px sans-serif; fill: #1a202c; }
+      .doc-sub { font: 400 11px sans-serif; fill: #718096; }
+    </style>
+  </defs>
+
+  <text x="24" y="16" class="doc-title">academAI — Technical Architecture</text>
+  <text x="24" y="32" class="doc-sub">Learn · Practice · Prevent · solid = shipped · dashed = planned</text>
+
+  <!-- Actors -->
+  <g id="actors">
+    <rect x="24" y="44" width="992" height="72" rx="6" class="zone"/>
+    <rect x="24" y="44" width="992" height="22" rx="6" class="zone-header"/>
+    <rect x="24" y="60" width="992" height="6" class="zone-header"/>
+    <text x="34" y="59" class="zone-title">Actors</text>
+    <rect x="48" y="68" width="130" height="36" rx="4" class="box"/><text x="113" y="86" text-anchor="middle" class="box-title">Under-14 learners</text>
+    <rect x="196" y="68" width="150" height="36" rx="4" class="box"/><text x="271" y="86" text-anchor="middle" class="box-title">Students / Lecturers</text>
+    <rect x="364" y="68" width="130" height="36" rx="4" class="box"/><text x="429" y="86" text-anchor="middle" class="box-title">Elderly learners</text>
+    <rect x="512" y="68" width="130" height="36" rx="4" class="box-planned"/><text x="577" y="82" text-anchor="middle" class="box-title">Editors (planned)</text><text x="577" y="96" text-anchor="middle" class="box-sub">content review</text>
+  </g>
+
+  <!-- Presentation -->
+  <g id="presentation">
+    <rect x="24" y="132" width="992" height="118" rx="6" class="zone"/>
+    <rect x="24" y="132" width="992" height="22" rx="6" class="zone-header"/>
+    <rect x="24" y="148" width="992" height="6" class="zone-header"/>
+    <text x="34" y="147" class="zone-title">Presentation layer</text>
+    <text x="1006" y="147" text-anchor="end" class="zone-sub">Next.js 15 · React 19 · TypeScript · CSS Modules</text>
+    <rect x="48" y="176" width="118" height="52" rx="4" class="box"/><text x="107" y="196" text-anchor="middle" class="box-title">Homepage</text><text x="107" y="210" text-anchor="middle" class="box-sub">Learn · Practice · Prevent</text>
+    <rect x="182" y="176" width="118" height="52" rx="4" class="box"/><text x="241" y="196" text-anchor="middle" class="box-title">Dashboard</text><text x="241" y="210" text-anchor="middle" class="box-sub">/dashboard/[profile]</text>
+    <rect x="316" y="176" width="118" height="52" rx="4" class="box"/><text x="375" y="196" text-anchor="middle" class="box-title">Module Runner</text><text x="375" y="210" text-anchor="middle" class="box-sub">quiz · classify · script</text>
+    <rect x="450" y="176" width="118" height="52" rx="4" class="box"/><text x="509" y="196" text-anchor="middle" class="box-title">Spot the Scam</text><text x="509" y="210" text-anchor="middle" class="box-sub">scenario practice</text>
+    <rect x="584" y="176" width="118" height="52" rx="4" class="box"/><text x="643" y="196" text-anchor="middle" class="box-title">Cadet Sandbox</text><text x="643" y="210" text-anchor="middle" class="box-sub">Live · Llama 2</text>
+    <rect x="718" y="176" width="118" height="52" rx="4" class="box"/><text x="777" y="196" text-anchor="middle" class="box-title">Prompt Playground</text><text x="777" y="210" text-anchor="middle" class="box-sub">orchestrator UI</text>
+    <rect x="852" y="176" width="130" height="52" rx="4" class="box"/><text x="917" y="196" text-anchor="middle" class="box-title">Elderly Voice UI</text><text x="917" y="210" text-anchor="middle" class="box-sub">Read Aloud · Web Speech</text>
+  </g>
+
+  <!-- Application -->
+  <g id="application">
+    <rect x="24" y="266" width="992" height="96" rx="6" class="zone"/>
+    <rect x="24" y="266" width="992" height="22" rx="6" class="zone-header"/>
+    <text x="34" y="281" class="zone-title">Application layer</text>
+    <text x="1006" y="281" text-anchor="end" class="zone-sub">src/lib · src/components</text>
+    <rect x="48" y="306" width="150" height="44" rx="4" class="box"/><text x="123" y="324" text-anchor="middle" class="box-title">Cadet Engine</text><text x="123" y="338" text-anchor="middle" class="box-sub">scan · analyze · grade</text>
+    <rect x="214" y="306" width="150" height="44" rx="4" class="box"/><text x="289" y="324" text-anchor="middle" class="box-title">Module Loader</text><text x="289" y="338" text-anchor="middle" class="box-sub">content/*.json</text>
+    <rect x="380" y="306" width="150" height="44" rx="4" class="box"/><text x="455" y="324" text-anchor="middle" class="box-title">Spot-the-Scam lib</text><text x="455" y="338" text-anchor="middle" class="box-sub">scenario bank</text>
+    <rect x="546" y="306" width="150" height="44" rx="4" class="box"/><text x="621" y="324" text-anchor="middle" class="box-title">Engagement Tracker</text><text x="621" y="338" text-anchor="middle" class="box-sub">client events</text>
+    <rect x="712" y="306" width="170" height="44" rx="4" class="box"/><text x="797" y="324" text-anchor="middle" class="box-title">Profile themes</text><text x="797" y="338" text-anchor="middle" class="box-sub">under-14 · students · elderly</text>
+  </g>
+
+  <!-- API -->
+  <g id="api">
+    <rect x="24" y="378" width="992" height="88" rx="6" class="zone"/>
+    <rect x="24" y="378" width="992" height="22" rx="6" class="zone-header"/>
+    <text x="34" y="393" class="zone-title">API layer</text>
+    <text x="1006" y="393" text-anchor="end" class="zone-sub">Next.js Route Handlers</text>
+    <rect x="200" y="414" width="200" height="44" rx="4" class="box"/><text x="300" y="432" text-anchor="middle" class="box-title">POST /api/orchestrate</text><text x="300" y="446" text-anchor="middle" class="box-sub">guardrailed AI pipeline</text>
+    <rect x="420" y="414" width="200" height="44" rx="4" class="box"/><text x="520" y="432" text-anchor="middle" class="box-title">POST /api/sessions</text><text x="520" y="446" text-anchor="middle" class="box-sub">engagement events (stub)</text>
+  </g>
+
+  <!-- Orchestration -->
+  <g id="orchestration">
+    <rect x="24" y="482" width="992" height="96" rx="6" class="zone"/>
+    <rect x="24" y="482" width="992" height="22" rx="6" class="zone-header"/>
+    <text x="34" y="497" class="zone-title">AI orchestration layer</text>
+    <text x="1006" y="497" text-anchor="end" class="zone-sub">src/lib/orchestrator — pipeline.ts</text>
+    <rect x="80" y="522" width="140" height="44" rx="4" class="box"/><text x="150" y="540" text-anchor="middle" class="box-title">Input guardrails</text><text x="150" y="554" text-anchor="middle" class="box-sub">EU AI Act · safety</text>
+    <rect x="250" y="522" width="120" height="44" rx="4" class="box"/><text x="310" y="548" text-anchor="middle" class="box-title">Router</text>
+    <rect x="400" y="522" width="140" height="44" rx="4" class="box"/><text x="470" y="540" text-anchor="middle" class="box-title">Model adapters</text><text x="470" y="554" text-anchor="middle" class="box-sub">pluggable backends</text>
+    <rect x="570" y="522" width="150" height="44" rx="4" class="box"/><text x="645" y="540" text-anchor="middle" class="box-title">Output guardrails</text><text x="645" y="554" text-anchor="middle" class="box-sub">PII · length · label</text>
+    <line x1="220" y1="544" x2="250" y2="544" class="pipe"/>
+    <line x1="370" y1="544" x2="400" y2="544" class="pipe"/>
+    <line x1="540" y1="544" x2="570" y2="544" class="pipe"/>
+    <text x="720" y="544" class="label">pipeline flow →</text>
+  </g>
+
+  <!-- Inference -->
+  <g id="inference">
+    <rect x="24" y="594" width="992" height="96" rx="6" class="zone"/>
+    <rect x="24" y="594" width="992" height="22" rx="6" class="zone-header"/>
+    <text x="34" y="609" class="zone-title">Inference runtime</text>
+    <text x="1006" y="609" text-anchor="end" class="zone-sub">Local-first · no cloud API keys</text>
+    <rect x="120" y="634" width="120" height="44" rx="4" class="box"/><text x="180" y="652" text-anchor="middle" class="box-title">Simulated</text><text x="180" y="666" text-anchor="middle" class="box-sub">offline templates</text>
+    <rect x="270" y="634" width="120" height="44" rx="4" class="box"/><text x="330" y="652" text-anchor="middle" class="box-title">Ollama</text><text x="330" y="666" text-anchor="middle" class="box-sub">Llama 2 · :11434</text>
+    <rect x="420" y="634" width="120" height="44" rx="4" class="box"/><text x="480" y="652" text-anchor="middle" class="box-title">LangGraph</text><text x="480" y="666" text-anchor="middle" class="box-sub">Python · :8001</text>
+    <rect x="570" y="634" width="120" height="44" rx="4" class="box"/><text x="630" y="652" text-anchor="middle" class="box-title">AutoGen</text><text x="630" y="666" text-anchor="middle" class="box-sub">Python · :8002</text>
+  </g>
+
+  <!-- Data -->
+  <g id="data">
+    <rect x="24" y="706" width="992" height="96" rx="6" class="zone-planned"/>
+    <rect x="24" y="706" width="992" height="22" rx="6" class="zone-header"/>
+    <text x="34" y="721" class="zone-title">Data &amp; configuration</text>
+    <text x="1006" y="721" text-anchor="end" class="zone-sub">shipped local · planned persistence</text>
+    <rect x="80" y="746" width="120" height="44" rx="4" class="box"/><text x="140" y="764" text-anchor="middle" class="box-title">JSON modules</text><text x="140" y="778" text-anchor="middle" class="box-sub">content/</text>
+    <rect x="220" y="746" width="120" height="44" rx="4" class="box"/><text x="280" y="764" text-anchor="middle" class="box-title">.env.local</text><text x="280" y="778" text-anchor="middle" class="box-sub">orchestrator config</text>
+    <rect x="360" y="746" width="120" height="44" rx="4" class="box-planned"/><text x="420" y="764" text-anchor="middle" class="box-title">PostgreSQL</text><text x="420" y="778" text-anchor="middle" class="box-sub">planned</text>
+    <rect x="500" y="746" width="120" height="44" rx="4" class="box-planned"/><text x="560" y="764" text-anchor="middle" class="box-title">Redis / queue</text><text x="560" y="778" text-anchor="middle" class="box-sub">planned</text>
+    <rect x="640" y="746" width="120" height="44" rx="4" class="box-planned"/><text x="700" y="764" text-anchor="middle" class="box-title">S3 media</text><text x="700" y="778" text-anchor="middle" class="box-sub">planned</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M 520 116 L 520 132" class="conn"/><text x="528" y="126" class="label">HTTPS</text>
+  <path d="M 520 250 L 520 266" class="conn"/><text x="528" y="260" class="label">RSC / fetch</text>
+  <path d="M 520 362 L 520 378" class="conn"/>
+  <path d="M 300 458 L 300 482" class="conn"/><text x="308" y="472" class="label">orchestrate</text>
+  <path d="M 520 578 L 520 594" class="conn"/>
+  <path d="M 330 678 L 330 706" class="conn"/><text x="338" y="694" class="label">Ollama API</text>
+  <path d="M 480 678 L 480 694" class="conn"/>
+  <path d="M 630 678 L 630 694" class="conn"/>
+</svg>

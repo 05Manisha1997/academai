@@ -1,0 +1,116 @@
+.playground {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+}
+
+.subtitle {
+  color: var(--aifa-muted);
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--aifa-surface);
+  border: 1px solid var(--aifa-border);
+  border-radius: var(--aifa-radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.panelTitle {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--aifa-muted);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: 1rem;
+  border-radius: var(--aifa-radius);
+  border: 2px solid var(--aifa-border);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  background: transparent;
+  color: var(--aifa-text);
+}
+
+.output {
+  min-height: 160px;
+  padding: 1rem;
+  border-radius: var(--aifa-radius);
+  background: color-mix(in srgb, var(--aifa-primary) 6%, transparent);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.checklist {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: var(--aifa-surface);
+  border: 1px solid var(--aifa-border);
+  border-radius: var(--aifa-radius-lg);
+}
+
+.checklist h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.checkItem input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--aifa-primary);
+}
+
+.templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.templateBtn {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid var(--aifa-border);
+  color: var(--aifa-text);
+  background: transparent;
+}
+
+.templateBtn:hover {
+  border-color: var(--aifa-primary);
+}

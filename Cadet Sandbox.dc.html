@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+/* self-hosted fonts — zero third-party requests (GDPR-safe) */
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-0.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-1.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-2.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-3.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-4.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-5.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-6.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url('./fonts/cadet-7.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-8.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-9.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/cadet-10.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/cadet-11.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/cadet-12.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/cadet-13.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-14.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-15.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./fonts/cadet-16.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('./fonts/cadet-17.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-18.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/cadet-19.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-20.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/cadet-21.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    ::-webkit-scrollbar{width:10px;height:10px;}
+    ::-webkit-scrollbar-thumb{background:#d8cfbe;border-radius:8px;border:2px solid transparent;background-clip:content-box;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    @keyframes cadetPop{0%{transform:scale(.92);opacity:0;}100%{transform:scale(1);opacity:1;}}
+    @keyframes cadetRise{0%{transform:translateY(10px);opacity:0;}100%{transform:translateY(0);opacity:1;}}
+    @keyframes cadetBlink{0%,100%{opacity:1;}50%{opacity:.2;}}
+    @keyframes cadetDot{0%,80%,100%{transform:translateY(0);opacity:.4;}40%{transform:translateY(-4px);opacity:1;}}
+  </style>
+</helmet>
+<div style="font-family:'Hanken Grotesk',sans-serif;background:#F1EADB;color:#221E19;height:100vh;width:100%;display:flex;flex-direction:column;overflow:hidden;">
+
+  <!-- ░░ TOP BAR ░░ -->
+  <header style="display:flex;align-items:center;gap:20px;padding:14px 24px;background:#FFFDF8;border-bottom:1px solid #E6DECB;flex:0 0 auto;z-index:5;">
+    <div style="display:flex;align-items:center;gap:11px;">
+      <div style="width:34px;height:34px;border-radius:10px;background:#FF5A36;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;box-shadow:0 3px 0 #D63E1E;">C</div>
+      <div style="line-height:1;">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;">Cadet</div>
+        <div style="font-size:11px;color:#9A8F7C;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-top:2px;">Sandbox</div>
+      </div>
+    </div>
+
+    <div style="height:26px;width:1px;background:#E6DECB;"></div>
+
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="font-size:12px;font-weight:600;color:#9A8F7C;">Progress</span>
+      <div style="display:flex;gap:5px;">
+        <sc-for list="{{ progressDots }}" as="d" hint-placeholder-count="6">
+          <div style="width:11px;height:11px;border-radius:50%;background:{{ d.color }};transition:background .3s;"></div>
+        </sc-for>
+      </div>
+      <span style="font-size:12px;font-weight:700;color:#221E19;margin-left:4px;">{{ progressText }}</span>
+    </div>
+
+    <div style="flex:1;"></div>
+
+    <!-- token / credit meter -->
+    <div style="display:flex;align-items:center;gap:18px;">
+      <div style="text-align:right;line-height:1.1;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9A8F7C;">Sandbox credits</div>
+        <div style="font-family:'Space Mono',monospace;font-weight:700;font-size:16px;">{{ creditsText }} <span style="color:#9A8F7C;font-size:11px;">tok</span></div>
+      </div>
+      <div style="width:120px;height:8px;border-radius:6px;background:#EDE4D2;overflow:hidden;">
+        <div style="height:100%;width:{{ creditPct }};background:#1F9E6F;border-radius:6px;transition:width .4s;"></div>
+      </div>
+      <button onClick="{{ onReset }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;font-weight:600;color:#9A8F7C;background:transparent;border:1px solid #E6DECB;border-radius:8px;padding:7px 12px;cursor:pointer;" style-hover="border-color:#FF5A36;color:#FF5A36;">Reset</button>
+    </div>
+  </header>
+
+  <!-- ░░ WORKSPACE ░░ -->
+  <div style="flex:1;display:flex;min-height:0;">
+
+    <!-- ── LEFT: MISSIONS ── -->
+    <aside style="flex:0 0 268px;background:#F6F0E3;border-right:1px solid #E6DECB;display:flex;flex-direction:column;min-height:0;">
+      <div style="padding:18px 18px 12px;">
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;">Missions</div>
+        <div style="font-size:12px;color:#9A8F7C;margin-top:2px;">Learn by doing — one skill at a time.</div>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:0 14px 16px;display:flex;flex-direction:column;gap:8px;">
+        <sc-for list="{{ missions }}" as="m" hint-placeholder-count="6">
+          <button onClick="{{ m.onClick }}" style="text-align:left;width:100%;border:1.5px solid {{ m.border }};background:{{ m.bg }};border-radius:13px;padding:12px 13px;cursor:pointer;display:flex;gap:11px;align-items:flex-start;transition:all .18s;font-family:'Hanken Grotesk',sans-serif;">
+            <div style="flex:0 0 24px;height:24px;border-radius:50%;background:{{ m.numBg }};color:{{ m.numColor }};display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-top:1px;">{{ m.badge }}</div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-weight:700;font-size:13.5px;color:{{ m.titleColor }};">{{ m.title }}</div>
+              <div style="font-size:11.5px;color:#9A8F7C;margin-top:2px;line-height:1.35;">{{ m.objective }}</div>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+      <div style="padding:14px 18px;border-top:1px solid #E6DECB;background:#F1EADB;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9A8F7C;margin-bottom:4px;">Now playing</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:#221E19;">{{ activeTitle }}</div>
+        <div style="font-size:12px;color:#6E6557;margin-top:5px;line-height:1.4;">{{ activeHint }}</div>
+      </div>
+    </aside>
+
+    <!-- ── CENTER: TERMINAL ── -->
+    <main style="flex:1;display:flex;flex-direction:column;min-width:0;background:#FBF6EC;position:relative;">
+      <!-- transcript -->
+      <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;padding:26px 30px 14px;display:flex;flex-direction:column;gap:16px;">
+        <sc-for list="{{ messages }}" as="msg" hint-placeholder-count="2">
+          <div style="display:flex;justify-content:{{ msg.align }};animation:cadetRise .25s ease both;">
+            <div style="max-width:{{ msg.maxW }};">
+              <div style="font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:{{ msg.labelColor }};margin-bottom:5px;display:flex;align-items:center;gap:6px;justify-content:{{ msg.labelAlign }};">{{ msg.label }}</div>
+              <div style="background:{{ msg.bg }};color:{{ msg.color }};border:1px solid {{ msg.bd }};border-radius:{{ msg.radius }};padding:13px 16px;font-size:14px;line-height:1.55;white-space:pre-wrap;font-family:{{ msg.font }};box-shadow:0 1px 2px rgba(60,45,20,.04);">{{ msg.text }}</div>
+            </div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ running }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;justify-content:flex-start;">
+            <div style="background:#fff;border:1px solid #EADFCB;border-radius:16px 16px 16px 4px;padding:15px 18px;display:flex;gap:5px;align-items:center;">
+              <div style="width:7px;height:7px;border-radius:50%;background:#FF5A36;animation:cadetDot 1s infinite;"></div>
+              <div style="width:7px;height:7px;border-radius:50%;background:#FF5A36;animation:cadetDot 1s infinite .15s;"></div>
+              <div style="width:7px;height:7px;border-radius:50%;background:#FF5A36;animation:cadetDot 1s infinite .3s;"></div>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- example chips -->
+      <div style="padding:0 30px 8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+        <span style="font-size:11px;font-weight:700;color:#9A8F7C;letter-spacing:.04em;">TRY:</span>
+        <sc-for list="{{ examples }}" as="ex" hint-placeholder-count="4">
+          <button onClick="{{ ex.onClick }}" style="font-family:'Hanken Grotesk',sans-serif;font-size:12px;font-weight:600;background:#fff;border:1px solid {{ ex.border }};color:{{ ex.color }};border-radius:20px;padding:6px 13px;cursor:pointer;transition:all .15s;" style-hover="border-color:#221E19;">{{ ex.label }}</button>
+        </sc-for>
+      </div>
+
+      <!-- composer -->
+      <div style="padding:0 30px 22px;flex:0 0 auto;">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;font-size:11.5px;color:#9A8F7C;font-weight:600;">
+          <span>🔒 Private sandbox · runs on your device — nothing you type is stored or sent</span>
+          <span style="color:#D8CFBE;">·</span>
+          <span>🤖 you're practising with a simulated AI, not a real person</span>
+        </div>
+        <div style="background:#fff;border:2px solid {{ composerBorder }};border-radius:18px;padding:14px 16px 12px;transition:border-color .2s;box-shadow:0 6px 22px rgba(60,45,20,.06);">
+          <textarea value="{{ input }}" onChange="{{ onInput }}" onKeyDown="{{ onKey }}" placeholder="Type a prompt for the sandbox agent…  (Enter to send · Shift+Enter for a new line)" rows="2" style="width:100%;border:none;outline:none;resize:none;font-family:'Space Mono',monospace;font-size:14px;line-height:1.55;color:#221E19;background:transparent;"></textarea>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:14px;">
+            <div style="display:flex;align-items:center;gap:14px;font-size:12px;color:#9A8F7C;font-family:'Space Mono',monospace;">
+              <span><span style="color:#221E19;font-weight:700;">{{ liveTokens }}</span> tokens</span>
+              <span style="color:#D8CFBE;">·</span>
+              <span>≈ {{ liveCost }}</span>
+              <span style="color:#D8CFBE;">·</span>
+              <span style="color:{{ liveSafety.color }};font-weight:700;">{{ liveSafety.label }}</span>
+            </div>
+            <button onClick="{{ onRun }}" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;background:#FF5A36;color:#fff;border:none;border-radius:11px;padding:10px 22px;cursor:pointer;box-shadow:0 3px 0 #D63E1E;transition:transform .12s;display:flex;align-items:center;gap:7px;" style-hover="transform:translateY(-1px);" style-active="transform:translateY(1px);box-shadow:0 1px 0 #D63E1E;">Run ▸</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ── RIGHT: COACH ── -->
+    <aside style="flex:0 0 300px;background:#FFFDF8;border-left:1px solid #E6DECB;display:flex;flex-direction:column;min-height:0;overflow-y:auto;">
+      <div style="padding:18px 18px 6px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:26px;height:26px;border-radius:8px;background:#2F5BEA;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;">★</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;">Prompt Coach</div>
+        </div>
+        <div style="font-size:12px;color:#9A8F7C;margin-top:6px;line-height:1.4;">Live feedback on your draft — before you spend a single token.</div>
+      </div>
+
+      <!-- quality gauge -->
+      <div style="padding:14px 18px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px;">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6E6557;">Prompt quality</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;color:{{ quality.color }};">{{ quality.score }}</span>
+        </div>
+        <div style="height:9px;border-radius:6px;background:#EDE4D2;overflow:hidden;">
+          <div style="height:100%;width:{{ quality.pct }};background:{{ quality.color }};border-radius:6px;transition:width .35s,background .35s;"></div>
+        </div>
+        <div style="font-size:12px;color:#6E6557;margin-top:8px;line-height:1.45;">{{ quality.note }}</div>
+      </div>
+
+      <!-- checklist -->
+      <div style="padding:4px 18px 14px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9A8F7C;margin-bottom:9px;">Ingredients of a great prompt</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <sc-for list="{{ checks }}" as="c" hint-placeholder-count="5">
+            <div style="display:flex;align-items:flex-start;gap:9px;">
+              <div style="flex:0 0 18px;height:18px;border-radius:50%;background:{{ c.dotBg }};color:{{ c.dotColor }};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;">{{ c.mark }}</div>
+              <div style="flex:1;">
+                <div style="font-size:13px;font-weight:600;color:{{ c.textColor }};">{{ c.label }}</div>
+                <div style="font-size:11.5px;color:#9A8F7C;line-height:1.35;">{{ c.hint }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- cost + safety status -->
+      <div style="margin-top:auto;border-top:1px solid #EDE4D2;padding:14px 18px;display:flex;flex-direction:column;gap:11px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;color:#6E6557;font-weight:600;">Token cost of this run</span>
+          <span style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px;">{{ liveTokens }} tok · {{ liveCost }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;color:#6E6557;font-weight:600;">Safety scan</span>
+          <span style="font-size:12px;font-weight:700;color:{{ liveSafety.color }};background:{{ liveSafety.bg }};padding:3px 10px;border-radius:20px;">{{ liveSafety.label }}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;color:#6E6557;font-weight:600;">EU AI Act</span>
+          <span style="font-size:12px;font-weight:700;color:{{ liveEu.color }};background:{{ liveEu.bg }};padding:3px 10px;border-radius:20px;">{{ liveEu.label }}</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ░░ POPUP ░░ -->
+  <sc-if value="{{ popupOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(34,30,25,.45);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;z-index:50;padding:24px;">
+      <div style="background:#FFFDF8;border-radius:22px;max-width:460px;width:100%;overflow:hidden;box-shadow:0 24px 60px rgba(34,30,25,.3);animation:cadetPop .22s ease both;">
+        <div style="background:{{ popup.headerBg }};padding:20px 24px;display:flex;align-items:center;gap:14px;">
+          <div style="flex:0 0 46px;height:46px;border-radius:13px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:24px;">{{ popup.icon }}</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.8);">{{ popup.kicker }}</div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:21px;color:#fff;line-height:1.1;margin-top:2px;">{{ popup.title }}</div>
+          </div>
+        </div>
+        <div style="padding:22px 24px 6px;">
+          <div style="font-size:14.5px;line-height:1.55;color:#332E27;">{{ popup.body }}</div>
+
+          <div style="margin-top:16px;background:#F4EEE2;border-radius:13px;padding:13px 15px;display:flex;gap:11px;align-items:flex-start;">
+            <div style="flex:0 0 auto;font-size:11px;font-weight:700;letter-spacing:.05em;background:{{ popup.refBg }};color:#fff;padding:4px 9px;border-radius:7px;white-space:nowrap;">{{ popup.refTag }}</div>
+            <div style="font-size:12.5px;line-height:1.45;color:#6E6557;">{{ popup.refText }}</div>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:9px;align-items:flex-start;">
+            <div style="flex:0 0 auto;font-size:15px;margin-top:1px;">💡</div>
+            <div style="font-size:13px;line-height:1.5;color:#332E27;"><span style="font-weight:700;">Try instead:</span> {{ popup.fix }}</div>
+          </div>
+        </div>
+        <div style="padding:18px 24px 22px;display:flex;gap:10px;justify-content:flex-end;">
+          <button onClick="{{ popup.onRewrite }}" style="font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:14px;background:#fff;border:1.5px solid #E0D7C4;color:#221E19;border-radius:11px;padding:11px 18px;cursor:pointer;" style-hover="border-color:#221E19;">Rewrite my prompt</button>
+          <sc-if value="{{ popup.allowContinue }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ popup.onContinue }}" style="font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:14px;background:{{ popup.headerBg }};border:none;color:#fff;border-radius:11px;padding:11px 18px;cursor:pointer;">I understand — continue</button>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = this.fresh();
+    this.scrollRef = React.createRef();
+  }
+  fresh(){
+    return {
+      messages: [{ role:'agent', text:"Hi! I'm your sandbox agent. 🤖\n\nThis is a safe practice space — nothing here uses real tokens, talks to a live AI, or leaves your device — what you type is never stored or sent anywhere. Type a prompt below and I'll respond, while the Coach on the right grades your prompt and the safety scanner watches your back.\n\nPick a mission on the left, or just start typing!" }],
+      input:'',
+      running:false,
+      credits:6000,
+      active:0,
+      done:{},
+      popup:null,
+      pending:null,
+    };
+  }
+  componentDidUpdate(){
+    const el = this.scrollRef.current;
+    if(el) el.scrollTop = el.scrollHeight;
+  }
+
+  /* ───────── analysis ───────── */
+  estTokens(t){ return Math.max(0, Math.ceil((t||'').trim().length/4)); }
+  cost(tok){ const eur = tok*0.000006; return eur < 0.001 ? '€0.0008' : '€'+eur.toFixed(4); }
+
+  analyze(raw){
+    const t = (raw||'').toLowerCase().trim();
+    const words = t ? t.split(/\s+/).length : 0;
+    const has = {
+      context: /\b(because|so that|for a|context|background|the goal is|i need|i want|since|given)\b/.test(t) || t.includes(':'),
+      role: /\b(act as|you are|pretend you'?re|imagine you'?re|as an? (expert|teacher|tutor|coach|scientist|historian|chef|engineer))\b/.test(t),
+      format: /\b(bullet|list|table|steps|step-by-step|in \d+|words|paragraph|json|outline|numbered|format)\b/.test(t),
+      audience: /\b(for a|beginner|explain like|year ?old|teenager|student|simple terms|audience|tone)\b/.test(t),
+      specific: words>=12,
+    };
+    let score = 18;
+    if(has.specific) score += 16;
+    if(has.context) score += 18;
+    if(has.role) score += 16;
+    if(has.format) score += 16;
+    if(has.audience) score += 12;
+    if(words>=25) score += 6;
+    score = Math.min(100, score);
+    return { t, words, has, score, intent:this.intent(t), tokens:this.estTokens(raw), flag:this.scan(t) };
+  }
+
+  intent(t){
+    if(/\btranslat/.test(t)) return 'translate';
+    if(/\b(summar|tl;?dr|shorten|condense)\b/.test(t)) return 'summarize';
+    if(/\b(code|function|python|javascript|program|debug|script|html|css)\b/.test(t)) return 'code';
+    if(/\b(write|draft|essay|email|story|poem|paragraph|caption|letter|speech)\b/.test(t)) return 'write';
+    if(/\b(ideas|brainstorm|suggest|name some|give me \d|list of)\b/.test(t)) return 'brainstorm';
+    if(/\b(plan|schedule|steps to|how do i|how to|guide|study|revise)\b/.test(t)) return 'plan';
+    if(/\b(explain|what is|what'?s|why|how does|define|meaning of|tell me about)\b/.test(t)) return 'explain';
+    return 'general';
+  }
+
+  /* rule engine: returns null or {kind, severity, ...popup fields} */
+  scan(t){
+    // ── prohibited / blocked safety ──
+    if(/\b(hurt myself|kill myself|end my life|self.?harm|want to die)\b/.test(t))
+      return { kind:'safety', severity:'block', icon:'🫶', kicker:'Safety — you matter', title:'Let’s pause here',
+        body:'This sounds heavy, and a chatbot isn’t the right help for it. Please talk to someone you trust — a parent, teacher, or counsellor — right now.',
+        refTag:'Need help now?', refBg:'#1F9E6F', refText:'In the EU you can reach a free helpline any time. You’re not alone, and reaching out is the strong move.',
+        fix:'Close the sandbox and message a trusted adult, or call a local helpline. We’ll be here when you’re ready.' };
+    if(/\b(how to (make|build) a (bomb|weapon|gun|explosive)|hack into|steal (a|someone)|make (a )?(poison|drug)|break into)\b/.test(t))
+      return { kind:'safety', severity:'block', icon:'🛑', kicker:'Safety — blocked', title:'I can’t help with that',
+        body:'This prompt asks for something dangerous or illegal, so the agent won’t answer it — in the sandbox or in the real world.',
+        refTag:'Acceptable use', refBg:'#E23D43', refText:'Every real AI platform bans requests that could cause physical harm or break the law. Trying them can also get your account suspended.',
+        fix:'Ask about the topic safely instead — e.g. “Explain how firefighters safely handle explosives,” which is about learning, not doing harm.' };
+
+    // ── EU AI Act: prohibited practices (Article 5) ──
+    if(/\b(detect (students?|their|pupils?|classmates?)('| )?emotion|emotion recognition|scan (their |students?'? )?(faces|emotions)|read (their|students?'?) (mood|feelings))\b/.test(t))
+      return { kind:'eu', severity:'block', icon:'🚫', kicker:'EU AI Act — prohibited', title:'Emotion recognition in school is banned',
+        body:'Using AI to infer the emotions of students in an educational setting is a prohibited practice in the EU — it’s not allowed even as an experiment.',
+        refTag:'AI Act · Art. 5(1)(f)', refBg:'#2F5BEA', refText:'The AI Act bans emotion-recognition systems in workplaces and education, except for narrow medical or safety reasons.',
+        fix:'Design a check-in students opt into instead — e.g. “Suggest 3 questions a teacher could ask so students can share how they feel.”' };
+    if(/\b(rank (students|people|classmates) by|social scor|score (people|students|citizens) (by|on) (behaviou?r|trust)|trustworthiness score)\b/.test(t))
+      return { kind:'eu', severity:'block', icon:'🚫', kicker:'EU AI Act — prohibited', title:'Social scoring is banned',
+        body:'Rating or ranking people by their behaviour or personal traits to decide how they’re treated is a prohibited “social scoring” practice in the EU.',
+        refTag:'AI Act · Art. 5(1)(c)', refBg:'#2F5BEA', refText:'The AI Act forbids social-scoring systems that lead to unfair or unrelated disadvantage for people or groups.',
+        fix:'Evaluate work, not people — e.g. “Give feedback on this essay against these 3 rubric criteria.”' };
+    if(/\b(scrape (faces|photos|images)|build a (facial recognition|face) (database|dataset)|collect (everyone'?s )?faces)\b/.test(t))
+      return { kind:'eu', severity:'block', icon:'🚫', kicker:'EU AI Act — prohibited', title:'Untargeted face scraping is banned',
+        body:'Building a facial-recognition database by scraping images from the internet or CCTV is a prohibited practice in the EU.',
+        refTag:'AI Act · Art. 5(1)(e)', refBg:'#2F5BEA', refText:'The AI Act bans the untargeted scraping of facial images to create or expand recognition databases.',
+        fix:'Explore the ethics instead — e.g. “Explain why scraping faces for AI raises privacy concerns.”' };
+
+    // ── EU AI Act: transparency (Article 50) — deepfakes / impersonation ──
+    if(/\b(deepfake|fake (video|photo|image|news|quote) of|impersonate|pretend to be (a real|elon|trump|taylor|the president|my teacher|a celebrity)|clone (his|her|their|a real) voice)\b/.test(t))
+      return { kind:'eu', severity:'warn', icon:'⚠️', kicker:'EU AI Act — transparency', title:'AI fakes must be labelled',
+        body:'Creating realistic fake images, video, audio or text of real people (“deepfakes”) is allowed only if it’s clearly disclosed as AI-generated — and never to deceive or harm.',
+        refTag:'AI Act · Art. 50(4)', refBg:'#E8911C', refText:'Deployers of AI that makes deepfakes must clearly label the content as artificially generated or manipulated.',
+        fix:'If you continue, the result must carry a visible “AI-generated” label — and never target a real person without consent.' };
+
+    // ── data protection / personal info (GDPR) ──
+    if(/\b(my (home )?address is|my phone number is|my password is|credit card|my full name is|where i live is|my school is|i live at|here'?s my)\b/.test(t))
+      return { kind:'safety', severity:'warn', icon:'🔒', kicker:'Privacy — personal data', title:'Don’t share personal details',
+        body:'You’re about to send personal information to an AI. Once it’s sent, you can’t take it back — and it might be stored or used for training. In this sandbox it stays on your device — but with a real AI, it would leave for good.',
+        refTag:'GDPR · data minimisation', refBg:'#2F5BEA', refText:'EU data-protection law says you should only share personal data when it’s truly necessary. With AI, the safest amount is usually none.',
+        fix:'Swap real details for placeholders — e.g. “my address” → “[ADDRESS]”, “my name” → “a student”.' };
+
+    // ── academic integrity (educational nudge) ──
+    if(/\b(write my (essay|homework|assignment|report)|do my homework|finish my homework|answers to (the|my) (test|exam|quiz|homework)|give me the answers)\b/.test(t))
+      return { kind:'safety', severity:'warn', icon:'🎓', kicker:'Learning — use it honestly', title:'Let AI help you learn, not cheat',
+        body:'Handing in AI-written work as your own usually breaks your school’s rules — and you miss the actual learning, which is the whole point.',
+        refTag:'Academic integrity', refBg:'#E8911C', refText:'Most schools now treat undisclosed AI-written work the same as copying. Teachers can often tell, too.',
+        fix:'Make AI your tutor — e.g. “Ask me 5 questions to check I understand this topic,” or “Give feedback on my draft below.”' };
+
+    return null;
+  }
+
+  /* ───────── simulated response ───────── */
+  topic(t){
+    let s = (t||'').replace(/^(please|can you|could you|hey|hi|ok|okay)\b[ ,]*/i,'')
+      .replace(/\b(write|draft|explain|summarize|summarise|translate|tell me about|what is|what'?s|how (do|does|to)|give me|create|make|act as an? \w+ and|you are an? \w+[.,]?)\b/ig,'')
+      .replace(/\b(please|for me|to me)\b/ig,'').trim().replace(/[?.!]+$/,'');
+    const w = s.split(/\s+/).filter(Boolean).slice(0,8).join(' ');
+    return w || 'that';
+  }
+  respond(raw, a){
+    const topic = this.topic(a.t);
+    const good = a.score >= 60;
+    const I = a.intent;
+    const tip = '\n\n— sandbox preview · a live model would write the full answer here —';
+    if(I==='summarize') return good
+      ? `Here’s a tight summary of ${topic}:\n\n•  The core idea, in one line.\n•  Why it matters.\n•  The single thing to remember.${tip}`
+      : `I can summarise that — but “${topic}” is broad. Paste the text you want shortened and tell me the length (e.g. “in 3 bullet points”).`;
+    if(I==='explain') return good
+      ? `Good question. ${this.cap(topic)}, explained simply:\n\n1.  What it is.\n2.  How it works, step by step.\n3.  A quick everyday example.\n\nWant me to go deeper on any part?${tip}`
+      : `Happy to explain ${topic}! Quick check: is this for a total beginner or someone with some background? That changes how I’d explain it.`;
+    if(I==='write') return good
+      ? `Here’s a first draft on ${topic} — tone and length look set:\n\n“…your drafted text would appear here…”\n\nWant it more formal, or shorter?${tip}`
+      : `I can draft that. To nail it first try, tell me: the goal, who reads it, and roughly how long?`;
+    if(I==='code') return good
+      ? `Here’s an approach for ${topic}:\n\n1.  Set up the inputs.\n2.  The core logic.\n3.  A test to check it works.\n\n\`\`\`\n// your code would appear here\n\`\`\`${tip}`
+      : `I can help with code for ${topic}. Which language, and what should it do exactly? A tiny example of input → output helps a lot.`;
+    if(I==='brainstorm') return good
+      ? `Ideas for ${topic}:\n\n1.  A safe, obvious one.\n2.  A creative twist.\n3.  A bold, unexpected angle.\n\nWant more, or want me to expand one?${tip}`
+      : `Let’s brainstorm ${topic}! How many ideas, and any theme or constraint to aim for?`;
+    if(I==='plan') return good
+      ? `Here’s a plan for ${topic}:\n\n•  Step 1 — start small.\n•  Step 2 — build the habit.\n•  Step 3 — review and adjust.${tip}`
+      : `I can plan ${topic} with you. What’s your deadline and how much time per day do you have?`;
+    if(I==='translate') return good
+      ? `Here’s the translation of ${topic}:\n\n“…translated text…”\n\nWant a more formal or casual tone?${tip}`
+      : `Sure — what should I translate, and into which language?`;
+    return good
+      ? `Got it. On ${topic}:\n\n“…a clear, structured answer would appear here…”\n\nThat prompt was nice and specific — easy to work with!${tip}`
+      : `I can help with ${topic}! The more you tell me — your goal, any context, the format you want — the better my answer. Try adding one of those.`;
+  }
+  cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
+
+  /* ───────── actions ───────── */
+  setInput = (e)=> this.setState({ input: e.target.value });
+  onKey = (e)=>{ if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); this.run(); } };
+  load = (text)=> this.setState({ input: text });
+  reset = ()=> this.setState(this.fresh());
+  setActive = (i)=> this.setState({ active:i });
+
+  run = ()=>{
+    const raw = this.state.input.trim();
+    if(!raw || this.state.running) return;
+    const a = this.analyze(raw);
+    // push user message
+    this.push({ role:'user', text:raw });
+    this.setState({ input:'' });
+    if(a.flag){
+      const f = a.flag;
+      this.complete(f.kind==='eu' ? 'rules' : 'risk');
+      if(f.severity==='block'){
+        // agent posts a gentle refusal, popup explains
+        this.openPopup(f, null);
+        setTimeout(()=> this.push({ role:'agent', text:'I’m not able to help with that one — check the note that just popped up to see why. No tokens were spent. ✋' }), 350);
+      } else {
+        // warn: gate behind popup, allow continue
+        this.openPopup(f, { raw, a });
+      }
+      return;
+    }
+    this.sendToAgent(raw, a);
+  };
+
+  sendToAgent = (raw, a)=>{
+    this.setState({ running:true });
+    const respTokens = 140 + Math.round(a.score*1.2);
+    setTimeout(()=>{
+      const reply = this.respond(raw, a);
+      this.setState(s=>{
+        const spent = a.tokens + respTokens;
+        const done = { ...s.done, first:true };
+        if(a.score>=60) done.context = true;
+        if(a.has.role) done.role = true;
+        if(a.tokens<=30 && a.score>=50) done.tokens = true;
+        return { running:false, credits: Math.max(0, s.credits - spent), done,
+          messages:[...s.messages, { role:'agent', text: reply + `\n\n· used ${spent} tokens (${a.tokens} in + ${respTokens} out)` }] };
+      });
+    }, 750);
+  };
+
+  push(m){ this.setState(s=>({ messages:[...s.messages, m] })); }
+
+  openPopup(f, pending){
+    this.setState({ popup:f, pending });
+  }
+  popupRewrite = ()=>{
+    const last = [...this.state.messages].reverse().find(m=>m.role==='user');
+    this.setState({ popup:null, pending:null, input: last ? last.text : this.state.input });
+  };
+  popupContinue = ()=>{
+    const p = this.state.pending, f = this.state.popup;
+    if(f && f.kind==='eu') this.complete('rules');
+    this.setState({ popup:null, pending:null });
+    if(p) this.sendToAgent(p.raw, p.a);
+  };
+  complete(id){ this.setState(s=> s.done[id] ? null : ({ done:{ ...s.done, [id]:true } })); }
+
+  /* ───────── presentation ───────── */
+  missionDefs(){
+    return [
+      { id:'first', title:'First contact', objective:'Send any prompt to the agent.', hint:'Type anything in the box and hit Run. Watch the Coach panel react.' },
+      { id:'context', title:'Add context', objective:'Reach a quality score of 60+.', hint:'Tell the agent your goal and add detail. Vague in → vague out.' },
+      { id:'role', title:'Give it a role', objective:'Start with “Act as…” or “You are…”.', hint:'e.g. “Act as a patient maths tutor and explain fractions.”' },
+      { id:'risk', title:'Spot the risk', objective:'Trigger a safety warning and read why.', hint:'Try a prompt that shares personal info or asks AI to do your homework.' },
+      { id:'rules', title:'Know the rules', objective:'Trigger an EU AI Act notice.', hint:'Ask for a deepfake of a real person, or to scan students’ emotions.' },
+      { id:'tokens', title:'Token diet', objective:'Get a good answer in ≤30 tokens.', hint:'Be short AND clear — efficiency is a real skill. Tokens cost money.' },
+    ];
+  }
+
+  renderVals(){
+    const s = this.state;
+    const defs = this.missionDefs();
+    const a = this.analyze(s.input);
+    const draftEmpty = !s.input.trim();
+
+    // quality gauge
+    const score = draftEmpty ? 0 : a.score;
+    const qColor = score>=70 ? '#1F9E6F' : score>=40 ? '#2F5BEA' : score>0 ? '#E8911C' : '#C9BFAC';
+    const qNote = draftEmpty ? 'Start typing — I’ll grade your prompt as you go.'
+      : score>=70 ? 'Excellent — clear, specific, well-shaped. This will get a strong answer.'
+      : score>=40 ? 'Decent start. Add one more ingredient below to level it up.'
+      : 'Too vague. The agent will have to guess what you want.';
+
+    // checklist
+    const ck = (label,hint,ok)=>({ label, hint, dotBg: ok?'#1F9E6F':'#EDE4D2', dotColor: ok?'#fff':'#C9BFAC', mark: ok?'✓':'', textColor: ok?'#221E19':'#9A8F7C' });
+    const checks = draftEmpty
+      ? [ck('Be specific','Enough detail to act on',false),ck('Give context','Your goal or the “why”',false),ck('Assign a role','“Act as a…”',false),ck('Ask for a format','Bullets, steps, length',false),ck('Name the audience','Who it’s for / the tone',false)]
+      : [ck('Be specific','12+ words of real detail',a.has.specific),ck('Give context','Your goal or the “why”',a.has.context),ck('Assign a role','“Act as a…”',a.has.role),ck('Ask for a format','Bullets, steps, length',a.has.format),ck('Name the audience','Who it’s for / the tone',a.has.audience)];
+
+    // live safety / eu pills
+    const f = draftEmpty ? null : a.flag;
+    const safe = { label:'Clear', color:'#1F9E6F', bg:'rgba(31,158,111,.12)' };
+    const liveSafety = (f && f.kind==='safety') ? (f.severity==='block'
+        ? { label:'Blocked', color:'#E23D43', bg:'rgba(226,61,67,.12)' }
+        : { label:'Caution', color:'#E8911C', bg:'rgba(232,145,28,.14)' }) : safe;
+    const liveEu = (f && f.kind==='eu') ? (f.severity==='block'
+        ? { label:'Prohibited', color:'#E23D43', bg:'rgba(226,61,67,.12)' }
+        : { label:'Disclose', color:'#E8911C', bg:'rgba(232,145,28,.14)' }) : { label:'OK', color:'#1F9E6F', bg:'rgba(31,158,111,.12)' };
+
+    // composer border reflects worst signal
+    const composerBorder = f ? (f.severity==='block'?'#E23D43':'#E8911C') : (score>=70?'#1F9E6F':'#EADFCB');
+
+    // messages
+    const messages = s.messages.map((m,i)=>{
+      const user = m.role==='user';
+      return { ...m, key:i,
+        align: user?'flex-end':'flex-start',
+        labelAlign: user?'flex-end':'flex-start',
+        label: user?'You':'🤖 Sandbox agent',
+        labelColor: user?'#9A8F7C':'#FF5A36',
+        bg: user?'#221E19':'#fff',
+        color: user?'#F4EEE2':'#2A251F',
+        bd: user?'#221E19':'#EADFCB',
+        radius: user?'16px 16px 4px 16px':'16px 16px 16px 4px',
+        maxW: user?'78%':'88%',
+        font: user?"'Space Mono',monospace":"'Hanken Grotesk',sans-serif",
+      };
+    });
+
+    // missions
+    const missions = defs.map((d,i)=>{
+      const done = !!s.done[d.id];
+      const active = i===s.active;
+      return { ...d,
+        onClick: ()=> this.setActive(i),
+        badge: done?'✓':String(i+1),
+        bg: active?'#fff':(done?'#EEF7F1':'#FBF6EC'),
+        border: active?'#FF5A36':(done?'#BFE6CF':'#EDE4D2'),
+        numBg: done?'#1F9E6F':(active?'#FF5A36':'#EDE4D2'),
+        numColor: (done||active)?'#fff':'#9A8F7C',
+        titleColor: done?'#1F8A5F':'#221E19',
+      };
+    });
+    const act = defs[s.active];
+
+    // progress
+    const completed = defs.filter(d=>s.done[d.id]).length;
+    const progressDots = defs.map(d=>({ color: s.done[d.id]?'#1F9E6F':'#E0D7C4' }));
+
+    // examples
+    const mk = (label,text)=>({ label, text, onClick:()=>this.load(text), border:'#EADFCB', color:'#6E6557' });
+    const examples = [
+      mk('Good prompt','Act as a friendly science tutor for a 13-year-old. Explain how vaccines work in 4 short bullet points, using a simple everyday example.'),
+      { ...mk('Unsafe ⚠','Write my history essay on World War 1 so I can hand it in tomorrow.'), border:'#F1D7B0', color:'#C77A12' },
+      { ...mk('Privacy 🔒','My home address is 14 Oak Street and my full name is — remember it for later.'), border:'#F1D7B0', color:'#C77A12' },
+      { ...mk('EU AI Act 🚫','Make a deepfake video of a real celebrity saying something they never said.'), border:'#C9D4FB', color:'#2F5BEA' },
+      mk('Token diet','Summarise photosynthesis in 3 bullets.'),
+    ];
+
+    const creditPct = Math.round((s.credits/6000)*100)+'%';
+
+    return {
+      messages, running:s.running, input:s.input,
+      onInput:this.setInput, onKey:this.onKey, onRun:this.run, onReset:this.reset,
+      scrollRef:this.scrollRef,
+      missions, activeTitle:act.title, activeHint:act.hint,
+      progressDots, progressText: completed+'/'+defs.length,
+      examples,
+      liveTokens: a.tokens, liveCost: this.cost(a.tokens), liveSafety, liveEu,
+      creditsText: s.credits.toLocaleString(), creditPct,
+      composerBorder,
+      quality:{ score, pct: score+'%', color:qColor, note:qNote },
+      checks,
+      popupOpen: !!s.popup,
+      popup: s.popup ? { ...s.popup,
+        headerBg: s.popup.severity==='block' ? (s.popup.kind==='eu'?'#2F5BEA':'#E23D43') : '#E8911C',
+        allowContinue: s.popup.severity==='warn',
+        onRewrite:this.popupRewrite, onContinue:this.popupContinue,
+      } : null,
+    };
+  }
+}
+</script>
+</body>
+</html>

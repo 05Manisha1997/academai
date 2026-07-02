@@ -1,0 +1,56 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--aifa-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.15s, background 0.15s, opacity 0.15s;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--aifa-primary);
+  color: var(--aifa-text-on-primary, #fff);
+}
+
+.primary:not(:disabled):hover {
+  background: var(--aifa-primary-hover);
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid var(--aifa-border);
+  color: var(--aifa-text);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--aifa-muted);
+  padding: 0.5rem;
+}
+
+.large {
+  padding: 1rem 1.75rem;
+  font-size: 1.125rem;
+  border-radius: var(--aifa-radius-lg);
+}
+
+.xl {
+  padding: 1.25rem 2rem;
+  font-size: 1.35rem;
+}
+
+.fullWidth {
+  width: 100%;
+}

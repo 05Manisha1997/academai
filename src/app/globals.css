@@ -1,0 +1,168 @@
+:root {
+  --aifa-font: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --aifa-radius: 12px;
+  --aifa-radius-lg: 20px;
+  --aifa-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
+
+  /* academAI brand — from logo */
+  --academai-navy: #1b365d;
+  --academai-navy-hover: #142a4a;
+  --academai-navy-soft: #eef2f8;
+  --academai-gold: #fdb833;
+  --academai-gold-dark: #c48a12;
+  --academai-gold-soft: #fff4e0;
+  --academai-muted: #5c6b7a;
+  --academai-border: #e2e8f0;
+
+  /* Default */
+  --aifa-bg: #f8fafc;
+  --aifa-surface: #ffffff;
+  --aifa-text: #1a2744;
+  --aifa-muted: #5c6b7a;
+  --aifa-primary: #1a2744;
+  --aifa-primary-hover: #0f1a2e;
+  --aifa-accent: #e8941a;
+  --aifa-border: #e2e8f0;
+  --aifa-success: #16a34a;
+  --aifa-warning: #ca8a04;
+  --aifa-danger: #dc2626;
+}
+
+/* Site sections — always light, user-friendly */
+[data-section="home"],
+[data-section="learn"],
+[data-section="practice"],
+[data-section="prevent"] {
+  --aifa-bg: #f4f7fb;
+  --aifa-surface: #ffffff;
+  --aifa-text: #1a2744;
+  --aifa-muted: #5c6b7a;
+  --aifa-primary: #1a2744;
+  --aifa-primary-hover: #0f1a2e;
+  --aifa-accent: #e8941a;
+  --aifa-border: #e2e8f0;
+}
+
+[data-profile="under-14"] {
+  --aifa-bg: linear-gradient(160deg, #ede9fe 0%, #fce7f3 50%, #fef3c7 100%);
+  --aifa-surface: #ffffff;
+  --aifa-primary: #7c3aed;
+  --aifa-primary-hover: #6d28d9;
+  --aifa-accent: #ec4899;
+  --aifa-text: #1e1b4b;
+}
+
+[data-profile="students-lecturers"] {
+  --aifa-bg: var(--cadet-paper, #f1eadb);
+  --aifa-primary: var(--cadet-coral, #ff5a36);
+  --aifa-primary-hover: #d63e1e;
+  --aifa-accent: #2f5bea;
+  --aifa-text: var(--cadet-ink, #221e19);
+  --aifa-muted: var(--cadet-muted, #6e6557);
+  --aifa-surface: var(--cadet-panel, #fffdf8);
+  --aifa-border: var(--cadet-border, #e6decb);
+
+  --cadet-paper: #f1eadb;
+  --cadet-panel: #fffdf8;
+  --cadet-rail: #f6f0e3;
+  --cadet-terminal: #fbf6ec;
+  --cadet-cream-card: #fbf6ec;
+  --cadet-mint-card: #eef7f1;
+  --cadet-ink: #221e19;
+  --cadet-body: #544c40;
+  --cadet-muted: #6e6557;
+  --cadet-faint: #9a8f7c;
+  --cadet-coral: #ff5a36;
+  --cadet-coral-shadow: #d63e1e;
+  --cadet-green: #1f9e6f;
+  --cadet-green-text: #1f8a5f;
+  --cadet-border: #e6decb;
+  --cadet-dot-idle: #e0d7c4;
+  --cadet-display-font: "Segoe UI", system-ui, sans-serif;
+  --cadet-body-font: "Segoe UI", system-ui, sans-serif;
+  --cadet-mono-font: ui-monospace, "Cascadia Code", monospace;
+}
+
+[data-profile="elderly"] {
+  --aifa-bg: #1a1a2e;
+  --aifa-surface: #2d2d44;
+  --aifa-text: #f5f5f5;
+  --aifa-muted: #c4c4d4;
+  --aifa-primary: #ffd700;
+  --aifa-primary-hover: #e6c200;
+  --aifa-accent: #ffd700;
+  --aifa-border: #3d3d5c;
+  --aifa-text-on-primary: #1a1a2e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--aifa-font);
+  line-height: 1.6;
+  color: var(--aifa-text);
+  background: var(--aifa-bg);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--aifa-accent);
+  outline-offset: 2px;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* AI Compass — Spot the Scam module */
+.scam-theme,
+[data-module="spot-the-scam"] {
+  --scam-ink: #16263a;
+  --scam-muted: #5a6b7b;
+  --scam-faint: #94a3b8;
+  --scam-teal: #0f766e;
+  --scam-teal-dark: #115e59;
+  --scam-teal-soft: #ccfbf1;
+  --scam-teal-ring: #99f6e4;
+  --scam-rose: #be123c;
+  --scam-rose-soft: #ffe4e6;
+  --scam-rose-ring: #fecdd3;
+  --scam-amber: #b45309;
+  --scam-amber-soft: #fef3c7;
+  --scam-amber-ring: #fde68a;
+  --scam-line: #e2e8f0;
+  --scam-line-soft: #eef2f6;
+  background: linear-gradient(to bottom, #f8fafc, #f1f0ec);
+  min-height: 100%;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(124, 58, 237, 0); }
+}

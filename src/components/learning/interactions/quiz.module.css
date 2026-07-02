@@ -1,0 +1,58 @@
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  border-radius: var(--aifa-radius);
+  border: 2px solid var(--aifa-border);
+  background: transparent;
+  color: var(--aifa-text);
+  font-size: 1rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--aifa-primary);
+  background: color-mix(in srgb, var(--aifa-primary) 8%, transparent);
+}
+
+.optionCorrect {
+  border-color: var(--aifa-success) !important;
+  background: color-mix(in srgb, var(--aifa-success) 12%, transparent) !important;
+}
+
+.optionWrong {
+  border-color: var(--aifa-danger) !important;
+  background: color-mix(in srgb, var(--aifa-danger) 10%, transparent) !important;
+}
+
+.feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--aifa-radius);
+  font-weight: 600;
+}
+
+.feedbackSuccess {
+  background: color-mix(in srgb, var(--aifa-success) 15%, transparent);
+  color: var(--aifa-success);
+}
+
+.feedbackError {
+  background: color-mix(in srgb, var(--aifa-danger) 12%, transparent);
+  color: var(--aifa-danger);
+}
+
+[data-profile="elderly"] .option {
+  font-size: 1.2rem;
+  padding: 1.15rem 1.35rem;
+}
+
+[data-profile="under-14"] .option {
+  font-size: 1.1rem;
+  border-radius: 16px;
+}

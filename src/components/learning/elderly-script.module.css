@@ -1,0 +1,134 @@
+.runner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.visual {
+  font-size: 4rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  line-height: 1;
+}
+
+.headline {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.narrator {
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: var(--aifa-muted);
+  margin-bottom: 1.5rem;
+}
+
+.callout {
+  padding: 1rem 1.25rem;
+  border-radius: var(--aifa-radius);
+  border-left: 5px solid var(--aifa-primary);
+  background: color-mix(in srgb, var(--aifa-primary) 10%, transparent);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+}
+
+.safety {
+  padding: 1.25rem;
+  border-radius: var(--aifa-radius-lg);
+  background: #3d3d5c;
+  border: 2px solid var(--aifa-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.safety strong {
+  display: block;
+  color: var(--aifa-primary);
+  margin-bottom: 0.35rem;
+}
+
+.card {
+  background: var(--aifa-surface);
+  border-radius: var(--aifa-radius-lg);
+  padding: 2rem;
+  border: 1px solid var(--aifa-border);
+}
+
+.progress {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--aifa-border);
+}
+
+.dotActive {
+  background: var(--aifa-primary);
+}
+
+.dotDone {
+  background: var(--aifa-success);
+}
+
+.actions {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--aifa-radius);
+  border: 2px solid var(--aifa-border);
+  text-align: left;
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--aifa-text);
+  width: 100%;
+}
+
+.checkItemSelected {
+  border-color: var(--aifa-primary);
+  background: color-mix(in srgb, var(--aifa-primary) 12%, transparent);
+}
+
+.checkbox {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 4px;
+  border: 2px solid var(--aifa-border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.15rem;
+}
+
+.checkboxOn {
+  background: var(--aifa-primary);
+  border-color: var(--aifa-primary);
+  color: var(--aifa-text-on-primary);
+}
+
+.completion {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.completion h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}

@@ -1,0 +1,139 @@
+{
+  "id": "mod-spot-deepfake-001",
+  "slug": "spot-the-deepfake",
+  "title": "Spot the Deepfake",
+  "description": "Learn to recognize AI-altered images and videos using See, Touch, Tweak.",
+  "audienceProfiles": ["under-14", "students-lecturers", "elderly"],
+  "estimatedMinutes": 8,
+  "sdgTags": ["SDG-4", "SDG-10", "SDG-11"],
+  "steps": [
+    {
+      "id": "step-1-see",
+      "order": 1,
+      "title": "See It — What Is a Deepfake?",
+      "modality": "see",
+      "content": {
+        "headline": "Some pictures and videos are made by computers, not cameras.",
+        "body": "A deepfake is when AI swaps a face or changes what someone appears to say. Real events can be twisted to look convincing.",
+        "mediaUrl": "/media/deepfake-comparison-elderly.mp4",
+        "interactionType": "quiz",
+        "interactionConfig": {
+          "question": "Which sign might suggest a video is fake?",
+          "options": [
+            { "id": "a", "label": "Lips don't match the words", "correct": true },
+            { "id": "b", "label": "The person is smiling", "correct": false },
+            { "id": "c", "label": "The background has trees", "correct": false }
+          ]
+        }
+      },
+      "successCriteria": { "minScore": 1.0 }
+    },
+    {
+      "id": "step-2-touch",
+      "order": 2,
+      "title": "Touch It — Compare Real vs Fake",
+      "modality": "touch",
+      "content": {
+        "headline": "Tap the images you think are real.",
+        "body": "Look at eyes, hair edges, and lighting. Fakes often look almost right — but not quite.",
+        "interactionType": "drag-drop",
+        "interactionConfig": {
+          "items": [
+            { "id": "img-1", "label": "Celebrity interview A", "isReal": false },
+            { "id": "img-2", "label": "Family photo B", "isReal": true },
+            { "id": "img-3", "label": "News clip C", "isReal": false }
+          ],
+          "bins": ["real", "fake"]
+        }
+      },
+      "successCriteria": { "minScore": 0.67, "requiredInteractions": ["img-1", "img-2", "img-3"] }
+    },
+    {
+      "id": "step-3-tweak",
+      "order": 3,
+      "title": "Tweak It — Your Safety Checklist",
+      "modality": "tweak",
+      "content": {
+        "headline": "Build your personal 'Pause Before You Share' list.",
+        "body": "Drag these habits into order of importance for you. AI can't replace your judgment — it needs your help.",
+        "interactionType": "slider",
+        "interactionConfig": {
+          "habits": [
+            "Check the source — do I trust this website or person?",
+            "Ask a family member if something feels urgent or scary",
+            "Look for odd details around eyes, teeth, or shadows",
+            "Never send money based only on a voice or video"
+          ]
+        }
+      }
+    }
+  ],
+  "adaptiveSignals": {
+    "difficultyLevel": 2,
+    "confidenceTopics": ["media-literacy", "scam-awareness"],
+    "fearTopics": ["deepfakes", "fake-news", "voice-cloning"]
+  },
+  "ingestionMeta": {
+    "sourceFeed": "https://feeds.arxiv.org/rss/cs.AI",
+    "sourceUrl": "https://arxiv.org/abs/example",
+    "draftStatus": "published",
+    "generatedAt": "2026-06-30T10:00:00Z"
+  },
+  "_exampleSession": {
+    "sessionId": "sess-8f3a2b1c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+    "userId": "user-elderly-042",
+    "moduleId": "mod-spot-deepfake-001",
+    "profile": "elderly",
+    "startedAt": "2026-06-30T14:22:00Z",
+    "completedAt": "2026-06-30T14:29:45Z",
+    "engagementEvents": [
+      { "eventType": "module_started", "timestamp": "2026-06-30T14:22:00Z" },
+      {
+        "eventType": "step_viewed",
+        "timestamp": "2026-06-30T14:22:05Z",
+        "stepId": "step-1-see",
+        "durationMs": 45000
+      },
+      {
+        "eventType": "answer_submitted",
+        "timestamp": "2026-06-30T14:22:52Z",
+        "stepId": "step-1-see",
+        "payload": { "selectedOption": "a", "correct": true }
+      },
+      {
+        "eventType": "hint_requested",
+        "timestamp": "2026-06-30T14:24:10Z",
+        "stepId": "step-2-touch",
+        "payload": { "hintLevel": 1 }
+      },
+      {
+        "eventType": "interaction_completed",
+        "timestamp": "2026-06-30T14:26:30Z",
+        "stepId": "step-2-touch",
+        "payload": { "score": 0.67 }
+      },
+      {
+        "eventType": "module_completed",
+        "timestamp": "2026-06-30T14:29:45Z",
+        "payload": { "overallScore": 0.89 }
+      }
+    ],
+    "stepScores": {
+      "step-1-see": 1.0,
+      "step-2-touch": 0.67,
+      "step-3-tweak": 1.0
+    },
+    "aggregateMetrics": {
+      "totalDurationMs": 465000,
+      "hintsUsed": 1,
+      "completionRate": 1.0,
+      "struggleIndicators": ["hint_on_step_2"]
+    },
+    "_mlProfileOutput": {
+      "literacyBand": "building",
+      "recommendedNextModule": "voice-scam-shield",
+      "fearReductionScore": 0.72,
+      "preferredModality": "see"
+    }
+  }
+}

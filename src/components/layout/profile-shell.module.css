@@ -1,0 +1,155 @@
+.profileShell {
+
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+
+.header {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 0.75rem 1.25rem;
+
+  background: var(--aifa-surface);
+
+  border-bottom: 1px solid var(--aifa-border);
+
+  flex-wrap: wrap;
+
+}
+
+
+
+.brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.85rem;
+
+  min-width: 0;
+
+}
+
+
+
+.logoLink {
+
+  display: flex;
+
+  align-items: center;
+
+  flex-shrink: 0;
+
+}
+
+
+
+.logo {
+
+  height: 40px;
+
+  width: auto;
+
+  object-fit: contain;
+
+  display: block;
+
+}
+
+
+
+.profileLabel {
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  color: var(--aifa-muted);
+
+  padding-left: 0.85rem;
+
+  border-left: 1px solid var(--aifa-border);
+
+}
+
+
+
+.nav {
+
+  display: flex;
+
+  gap: 0.4rem;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+}
+
+
+
+.navLink {
+
+  padding: 0.45rem 0.85rem;
+
+  border-radius: 999px;
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  border: 1px solid var(--aifa-border);
+
+  background: transparent;
+
+  color: var(--aifa-text);
+
+  transition: background 0.15s, transform 0.15s;
+
+}
+
+
+
+.navLink:hover {
+
+  background: color-mix(in srgb, var(--aifa-primary) 10%, transparent);
+
+  transform: translateY(-1px);
+
+}
+
+
+
+.main {
+
+  flex: 1;
+
+}
+
+
+
+@media (max-width: 640px) {
+
+  .profileLabel {
+
+    display: none;
+
+  }
+
+}
+
+

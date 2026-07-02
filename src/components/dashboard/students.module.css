@@ -1,0 +1,92 @@
+.dashboard {
+  padding: 1.5rem;
+  max-width: 960px;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1.4fr;
+  }
+}
+
+.panel {
+  background: var(--aifa-surface);
+  border: 1px solid var(--aifa-border);
+  border-radius: var(--aifa-radius-lg);
+  padding: 1.5rem;
+}
+
+.panel h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linkList a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: var(--aifa-radius);
+  border: 1px solid var(--aifa-border);
+  font-weight: 600;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.linkList a:hover {
+  border-color: var(--aifa-primary);
+  background: color-mix(in srgb, var(--aifa-primary) 8%, transparent);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--aifa-border);
+}
+
+.table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--aifa-muted);
+}
+
+.table a {
+  font-weight: 600;
+  color: var(--aifa-primary);
+}
+
+.tip {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--aifa-radius);
+  background: color-mix(in srgb, var(--aifa-primary) 8%, transparent);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  background: color-mix(in srgb, var(--aifa-primary) 15%, transparent);
+  color: var(--aifa-primary);
+  font-weight: 700;
+}

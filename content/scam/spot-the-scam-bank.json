@@ -1,0 +1,169 @@
+{
+  "title": "Spot the Scam",
+  "brand": "AI Compass",
+  "scenarios": [
+    {
+      "id": "grandchild-trouble",
+      "isScam": true,
+      "channel": "Text message",
+      "sender": "+1 (415) 555-0142",
+      "subject": null,
+      "body": "Grandma it's me, I'm in trouble and lost my phone so this is a friend's number. I had an accident and need $800 for bail. Please don't tell mom and dad. Can you send it on gift cards right now? I'll explain everything later.",
+      "redFlags": [
+        "Creates panic and rushes you to act \"right now.\"",
+        "Asks you to keep it a secret from the rest of the family.",
+        "Wants payment in gift cards — real emergencies never work this way.",
+        "Comes from an unknown number claiming to be a loved one."
+      ],
+      "safeSigns": [],
+      "explanation": "This is the classic \"grandchild in trouble\" scam. Scammers use fear and secrecy so you act before you can check. A real family member would let you call their parents.",
+      "lesson": "If a message rushes you and says \"don't tell anyone,\" stop and call your family directly."
+    },
+    {
+      "id": "cvs-prescription",
+      "isScam": false,
+      "channel": "Text message",
+      "sender": "CVS Pharmacy",
+      "subject": null,
+      "body": "Hi Margaret, your prescription is ready for pickup at the Maple Street CVS. Reply STOP to opt out of reminders. No action needed if you've already picked it up.",
+      "redFlags": [],
+      "safeSigns": [
+        "It doesn't ask for money, passwords, or personal details.",
+        "It matches a service you already use.",
+        "There's no link to click and no sense of panic."
+      ],
+      "explanation": "This is a normal pharmacy reminder. Legitimate businesses send simple updates and never ask you to enter a password or pay a surprise fee by text.",
+      "lesson": "Real reminders inform you. Scams pressure you. Look for the pressure."
+    },
+    {
+      "id": "amazon-phish",
+      "isScam": true,
+      "channel": "Email",
+      "sender": "Amaz0n Security <verify@amaz0n-account-secure.com>",
+      "subject": "URGENT: Your account has been suspended",
+      "body": "Dear Customer, we detected unusual activity. Your account is suspended. You must verify your identity within 24 hours or it will be permanently closed. Click here to confirm your login and billing details: amaz0n-account-secure.com/verify",
+      "redFlags": [
+        "The sender's address is misspelled (\"Amaz0n\" with a zero).",
+        "It threatens to close your account to make you panic.",
+        "It wants you to click a link and re-enter your login and card details.",
+        "It greets you as \"Dear Customer\" instead of your name."
+      ],
+      "safeSigns": [],
+      "explanation": "This is a phishing email. Real companies don't ask you to confirm your password by clicking an email link. The fake web address is the giveaway.",
+      "lesson": "Never log in through a link in an email. Open the app or type the website yourself."
+    },
+    {
+      "id": "bank-fraud-alert",
+      "isScam": false,
+      "channel": "Email",
+      "sender": "First National Bank <alerts@firstnationalbank.com>",
+      "subject": "We paused a charge on your card",
+      "body": "We paused a $312 charge at an electronics store because it looked unusual. If this was you, no action is needed. If it wasn't, call the number on the back of your card. We will never ask for your PIN or password.",
+      "redFlags": [],
+      "safeSigns": [
+        "It tells you to call the number on the back of your card — not a number in the email.",
+        "It clearly states the bank will never ask for your PIN.",
+        "If it was really you, no action is needed — no pressure."
+      ],
+      "explanation": "This is a genuine fraud alert. Notice it gives you a safe way to respond (your own card) and never asks for secret information.",
+      "lesson": "A real bank points you back to your card. A fake one asks for your PIN."
+    },
+    {
+      "id": "ssa-voicemail",
+      "isScam": true,
+      "channel": "Voicemail",
+      "sender": "Unknown caller (\"Social Security Administration\")",
+      "subject": null,
+      "body": "This is a final notice from the Social Security Administration. Your Social Security number has been suspended due to suspicious activity. A warrant has been issued for your arrest. To avoid legal action, call us back immediately and be ready to verify your identity with payment.",
+      "redFlags": [
+        "Government agencies do not threaten arrest by voicemail.",
+        "Your Social Security number cannot be \"suspended.\"",
+        "It demands you call back and pay immediately.",
+        "It uses fear of arrest to stop you thinking clearly."
+      ],
+      "safeSigns": [],
+      "explanation": "This is a government-impersonation scam. Agencies like Social Security contact you by mail and never demand payment over the phone to avoid arrest.",
+      "lesson": "Threats of arrest over the phone are always a scam. Hang up and don't call back."
+    },
+    {
+      "id": "usps-fee",
+      "isScam": true,
+      "channel": "Text message",
+      "sender": "USPS",
+      "subject": null,
+      "body": "USPS: Your package is on hold due to an unpaid shipping fee of $1.99. Please update your payment to release it: usps-redelivery-fee.com",
+      "redFlags": [
+        "A tiny fee plus a link is a trick to capture your card details.",
+        "Real carriers don't text you a link to pay a surprise fee.",
+        "The web address isn't the real USPS website."
+      ],
+      "safeSigns": [],
+      "explanation": "This is a \"package fee\" scam. The small amount makes it feel harmless, but the goal is to steal your card number on the fake page.",
+      "lesson": "Don't pay fees through links in texts. Check tracking on the carrier's real website."
+    },
+    {
+      "id": "doctor-appointment",
+      "isScam": false,
+      "channel": "Text message",
+      "sender": "Dr. Lee's Office",
+      "subject": null,
+      "body": "Reminder: you have an appointment with Dr. Lee on Tuesday at 10:00 AM. Reply C to confirm or call us to reschedule. Thank you!",
+      "redFlags": [],
+      "safeSigns": [
+        "It's an appointment you're expecting.",
+        "There's no payment and no link asking for details.",
+        "Confirming is simple and doesn't reveal personal information."
+      ],
+      "explanation": "This is a routine appointment reminder. It asks only for a simple confirmation and never for money or private details.",
+      "lesson": "Expected, specific, and no money asked for — usually a sign it's real."
+    },
+    {
+      "id": "microsoft-virus",
+      "isScam": true,
+      "channel": "Email",
+      "sender": "Microsoft Support <help@ms-security-team.net>",
+      "subject": "Virus detected on your computer",
+      "body": "Warning! Our scan found 3 viruses on your computer. Your files are at risk. Call our support line now at 1-888-555-0177 and allow our technician remote access so we can remove them before your data is lost.",
+      "redFlags": [
+        "Real companies can't scan your computer through an email.",
+        "It wants you to call and give a stranger remote access.",
+        "It uses fear of losing your files to rush you."
+      ],
+      "safeSigns": [],
+      "explanation": "This is a tech-support scam. Once you give remote access, the \"technician\" can steal information or demand payment. Microsoft never contacts you this way.",
+      "lesson": "Never let an unexpected caller take control of your computer."
+    },
+    {
+      "id": "prize-gift-card",
+      "isScam": true,
+      "channel": "Text message",
+      "sender": "+1 (202) 555-0190",
+      "subject": null,
+      "body": "Congratulations! You've been selected to win a $1,000 gift card. To claim your prize, just confirm your name, address, and card number at win-bigrewards.com within 12 hours.",
+      "redFlags": [
+        "You can't win a prize you never entered.",
+        "It asks for your card number to \"claim\" a reward.",
+        "It puts you on a countdown to rush you."
+      ],
+      "safeSigns": [],
+      "explanation": "This is a prize scam. Real giveaways never need your card number, and a genuine prize wouldn't expire in hours to pressure you.",
+      "lesson": "If you have to give card details to receive a \"free\" prize, it's a scam."
+    },
+    {
+      "id": "library-due",
+      "isScam": false,
+      "channel": "Email",
+      "sender": "City Public Library <noreply@citylibrary.org>",
+      "subject": "Your book is due soon",
+      "body": "Hello, this is a friendly reminder that \"The Thursday Murder Club\" is due back on Friday. You can renew online or in person if you'd like more time. No fees are due at this time.",
+      "redFlags": [],
+      "safeSigns": [
+        "It's about a book you actually borrowed.",
+        "It doesn't ask for money or personal details.",
+        "Renewing is optional and there's no pressure."
+      ],
+      "explanation": "This is an ordinary library reminder. It references something real you did and asks nothing sensitive of you.",
+      "lesson": "Messages about things you genuinely did, with no money asked, are usually safe."
+    }
+  ]
+}

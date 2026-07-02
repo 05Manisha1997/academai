@@ -1,0 +1,90 @@
+.dashboard {
+  padding: 1.5rem;
+  min-height: 70vh;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.12);
+}
+
+.sectionTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.12);
+  transition: transform 0.2s;
+  animation: pop-in 0.4s ease backwards;
+}
+
+.card:nth-child(2) { animation-delay: 0.08s; }
+.card:nth-child(3) { animation-delay: 0.16s; }
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.icon {
+  font-size: 2.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.xp {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.sandbox {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px dashed #c4b5fd;
+}
+
+.sandbox h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+}
+
+.sandbox p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}

@@ -1,0 +1,89 @@
+{
+  "moduleId": "elderly-super-smart-puppy-intro",
+  "title": "Meet Your Super-Smart Puppy",
+  "audienceProfile": "elderly",
+  "estimatedMinutes": 3,
+  "analogy": "super-smart-puppy",
+  "sdgAlignment": ["SDG-4", "SDG-10", "SDG-11"],
+  "voiceFirst": true,
+  "script": [
+    {
+      "beat": 1,
+      "durationSeconds": 45,
+      "narrator": "Welcome, friend. Today we're going to meet something that sounds fancy — 'Artificial Intelligence' — but it's really just a super-smart puppy that learns from examples. You don't need a computer degree. You need the same patience you'd use training a dear old dog.",
+      "onScreen": {
+        "headline": "AI Is Like a Super-Smart Puppy",
+        "visual": "gentle animation of puppy watching owner bake",
+        "fontSize": "xl",
+        "contrast": "high"
+      },
+      "interaction": {
+        "type": "voice-prompt",
+        "prompt": "Say 'Hello, puppy' or tap the button if you'd like me to continue.",
+        "fallbackButton": "Continue"
+      }
+    },
+    {
+      "beat": 2,
+      "durationSeconds": 60,
+      "narrator": "Imagine you teach your puppy to fetch slippers. You don't explain physics — you show slippers, say 'fetch,' and give a treat when he gets it right. After many tries, he spots the pattern: soft thing by the bed equals fetch time. Machine learning works the same way. We show the computer thousands of examples — pictures of cats, voices saying 'hello' — and it learns patterns. It is not magic. It is practice, like your puppy.",
+      "onScreen": {
+        "headline": "Learning = Seeing Patterns Over and Over",
+        "visual": "split screen: puppy treats / computer labeled photos",
+        "callout": "The computer does NOT understand like a person. It recognizes patterns."
+      },
+      "interaction": {
+        "type": "quiz",
+        "question": "What does the puppy — and the computer — need most to learn?",
+        "options": [
+          { "id": "a", "label": "Lots of good examples and gentle correction", "correct": true },
+          { "id": "b", "label": "A university degree", "correct": false },
+          { "id": "c", "label": "To replace you entirely", "correct": false }
+        ],
+        "feedbackCorrect": "Exactly. Examples and patience — just like with any good pupil.",
+        "feedbackWrong": "Not quite. Remember: slippers, treats, repeat. Examples teach the pattern."
+      }
+    },
+    {
+      "beat": 3,
+      "durationSeconds": 55,
+      "narrator": "Now, puppies make mistakes. They might bring you a shoe instead of a slipper. AI makes mistakes too — sometimes it thinks a fake video is real, or treats everyone unfairly because it only saw one kind of face growing up. That is called bias. Your job — your wisdom — is to be the loving owner who says, 'No, not that one,' and guides it. AI will not replace you. It needs your judgment, your kindness, and your years of common sense.",
+      "onScreen": {
+        "headline": "You Are the Teacher, Not the Student",
+        "visual": "elderly person gently correcting puppy with smile",
+        "safetyTip": "If a phone call sounds like your grandchild asking for money — pause. Scammers use AI voices. Call back on a number you know."
+      },
+      "interaction": {
+        "type": "checklist",
+        "prompt": "Tap two things YOU will remember today:",
+        "items": [
+          "AI learns patterns from examples — like a puppy",
+          "AI can be wrong or biased — I stay in charge",
+          "I will pause before trusting urgent voice or video messages"
+        ],
+        "minSelections": 2
+      }
+    },
+    {
+      "beat": 4,
+      "durationSeconds": 20,
+      "narrator": "Wonderful. You've just learned more about AI than most headlines will tell you. Next time, we'll practice spotting trick pictures together. For now, give yourself a pat — you've trained your super-smart puppy.",
+      "onScreen": {
+        "headline": "Well Done!",
+        "nextModule": "spot-the-deepfake",
+        "celebration": "confetti-subtle"
+      },
+      "interaction": {
+        "type": "completion",
+        "cta": "Return to My Safety Dashboard"
+      }
+    }
+  ],
+  "engagementMetricsToCapture": [
+    "voice_prompt_used",
+    "quiz_attempts",
+    "checklist_selections",
+    "time_per_beat",
+    "replay_narration_count"
+  ]
+}

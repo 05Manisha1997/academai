@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aifa.example/schemas/learning-module.json",
+  "title": "AIfA Learning Module",
+  "description": "Dynamic 3-step module with engagement metrics for adaptive ML profiling",
+  "type": "object",
+  "required": ["id", "slug", "title", "audienceProfiles", "steps", "adaptiveSignals"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "audienceProfiles": {
+      "type": "array",
+      "items": {
+        "enum": ["under-14", "students-lecturers", "elderly"]
+      },
+      "minItems": 1
+    },
+    "estimatedMinutes": { "type": "integer", "minimum": 1 },
+    "sdgTags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "examples": [["SDG-4", "SDG-10"]]
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "$ref": "#/$defs/LearningStep" }
+    },
+    "adaptiveSignals": { "$ref": "#/$defs/AdaptiveSignals" },
+    "ingestionMeta": { "$ref": "#/$defs/IngestionMeta" }
+  },
+  "$defs": {
+    "LearningStep": {
+      "type": "object",
+      "required": ["id", "order", "title", "modality", "content"],
+      "properties": {
+        "id": { "type": "string" },
+        "order": { "type": "integer", "minimum": 1, "maximum": 3 },
+        "title": { "type": "string" },
+        "modality": { "enum": ["see", "touch", "tweak"] },
+        "content": {
+          "type": "object",
+          "required": ["headline", "body"],
+          "properties": {
+            "headline": { "type": "string" },
+            "body": { "type": "string" },
+            "mediaUrl": { "type": "string", "format": "uri" },
+            "interactionType": {
+              "enum": ["quiz", "drag-drop", "slider", "voice-prompt", "hotspot"]
+            },
+            "interactionConfig": { "type": "object" }
+          }
+        },
+        "successCriteria": {
+          "type": "object",
+          "properties": {
+            "minScore": { "type": "number", "minimum": 0, "maximum": 1 },
+            "requiredInteractions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "AdaptiveSignals": {
+      "type": "object",
+      "required": ["difficultyLevel", "confidenceTopics", "fearTopics"],
+      "properties": {
+        "difficultyLevel": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "confidenceTopics": { "type": "array", "items": { "type": "string" } },
+        "fearTopics": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "IngestionMeta": {
+      "type": "object",
+      "properties": {
+        "sourceFeed": { "type": "string" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "draftStatus": {
+          "enum": ["auto_draft", "editor_review", "published"]
+        },
+        "generatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "EngagementEvent": {
+      "type": "object",
+      "required": ["eventType", "timestamp"],
+      "properties": {
+        "eventType": {
+          "enum": [
+            "module_started",
+            "step_viewed",
+            "interaction_completed",
+            "hint_requested",
+            "answer_submitted",
+            "module_completed",
+            "module_abandoned"
+          ]
+        },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "stepId": { "type": "string" },
+        "payload": { "type": "object" },
+        "durationMs": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "ModuleSession": {
+      "type": "object",
+      "required": [
+        "sessionId",
+        "userId",
+        "moduleId",
+        "profile",
+        "startedAt",
+        "engagementEvents",
+        "aggregateMetrics"
+      ],
+      "properties": {
+        "sessionId": { "type": "string", "format": "uuid" },
+        "userId": { "type": "string" },
+        "moduleId": { "type": "string" },
+        "profile": {
+          "enum": ["under-14", "students-lecturers", "elderly"]
+        },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "engagementEvents": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/EngagementEvent" }
+        },
+        "stepScores": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+        },
+        "aggregateMetrics": {
+          "type": "object",
+          "required": [
+            "totalDurationMs",
+            "hintsUsed",
+            "completionRate",
+            "struggleIndicators"
+          ],
+          "properties": {
+            "totalDurationMs": { "type": "integer" },
+            "hintsUsed": { "type": "integer" },
+            "completionRate": { "type": "number", "minimum": 0, "maximum": 1 },
+            "struggleIndicators": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "e.g. high_hint_rate, slow_step_2, repeated_wrong_answers"
+            }
+          }
+        }
+      }
+    }
+  }
+}
