@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { LearningModule, LearningStep } from "@/types/learning-module";
 import type { AudienceProfile } from "@/types/profiles";
 import { useEngagement } from "@/components/shared/EngagementProvider";
+import { useOptionalResourceMonitor } from "@/components/shared/ResourceMonitorProvider";
 import { Button } from "@/components/ui/Button";
 import { QuizStep } from "./interactions/QuizStep";
 import { ClassifyStep } from "./interactions/ClassifyStep";
@@ -24,6 +25,7 @@ interface ModuleRunnerProps {
 
 export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
   const { track } = useEngagement();
+  const resources = useOptionalResourceMonitor();
   const [stepIndex, setStepIndex] = useState(0);
   const [stepScores, setStepScores] = useState<Record<string, number>>({});
   const [stepComplete, setStepComplete] = useState(false);
@@ -59,8 +61,9 @@ export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
         stepId: step.id,
         payload: { score },
       });
+      resources?.recordLearningStep(`Lesson · ${step.title ?? step.id}`);
     },
-    [step, track]
+    [step, track, resources]
   );
 
   const handleHabitComplete = useCallback(() => {
@@ -68,7 +71,8 @@ export function ModuleRunner({ module, profile }: ModuleRunnerProps) {
     setStepScores((prev) => ({ ...prev, [step.id]: 1 }));
     setStepComplete(true);
     track("interaction_completed", { stepId: step.id, payload: { score: 1 } });
-  }, [step, track]);
+    resources?.recordLearningStep(`Lesson · ${step.title}`);
+  }, [step, track, resources]);
 
   function showHint() {
     setHintShown(true);

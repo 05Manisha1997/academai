@@ -1,3 +1,4 @@
+import type { ResourceSnapshot } from "@/lib/resource-footprint";
 import type { RuleHit } from "@/lib/cadet/types";
 import type { AudienceProfile } from "@/types/profiles";
 
@@ -30,7 +31,15 @@ export interface OrchestrateResponse {
     inputGuardrails: GuardrailResult;
     outputGuardrails: GuardrailResult;
     disclosure?: string;
+    resources?: ResourceSnapshot;
   };
+}
+
+export interface GenerateResult {
+  text: string;
+  promptTokens?: number;
+  completionTokens?: number;
+  latencyMs?: number;
 }
 
 export interface ModelAdapter {
@@ -40,5 +49,5 @@ export interface ModelAdapter {
     system: string;
     route: AgentRoute;
     profile?: AudienceProfile;
-  }): Promise<string>;
+  }): Promise<GenerateResult>;
 }

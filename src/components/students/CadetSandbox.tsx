@@ -10,6 +10,7 @@ import {
   scoreColor,
 } from "@/lib/cadet/engine";
 import { EXAMPLE_PROMPTS, MISSIONS, WELCOME_MESSAGE } from "@/lib/cadet/missions";
+import { useOptionalResourceMonitor } from "@/components/shared/ResourceMonitorProvider";
 import type { ChatMessage, MissionId, RuleHit, SandboxState } from "@/lib/cadet/types";
 import styles from "./cadet-sandbox.module.css";
 
@@ -31,6 +32,7 @@ export function CadetSandbox() {
   const [state, setState] = useState<SandboxState>(freshState);
   const [iconError, setIconError] = useState(false);
   const transcriptRef = useRef<HTMLDivElement>(null);
+  const resources = useOptionalResourceMonitor();
 
   const draftAnalysis = useMemo(() => analyze(state.input), [state.input]);
   const draftEmpty = !state.input.trim();
@@ -63,6 +65,12 @@ export function CadetSandbox() {
             respond(raw, a) +
             `\n\n· used ${spent} tokens (${a.tokens} in + ${outTokens} out)`;
 
+          resources?.recordSimulatedPrompt({
+            prompt: raw,
+            completion: reply,
+            latencyMs: 750,
+          });
+
           return {
             ...s,
             running: false,
@@ -73,7 +81,7 @@ export function CadetSandbox() {
         });
       }, 750);
     },
-    []
+    [resources]
   );
 
   const sendToOrchestrator = useCallback(
@@ -92,6 +100,7 @@ export function CadetSandbox() {
         });
 
         const data = await res.json();
+        resources?.recordFromOrchestrate(data);
         const spent = a.tokens + outTokens;
         const meta = data.meta ?? {};
         const backend = meta.backend ?? "orchestrator";
@@ -135,7 +144,7 @@ export function CadetSandbox() {
         }));
       }
     },
-    []
+    [resources]
   );
 
   const dispatchAgent = useCallback(

@@ -43,6 +43,9 @@ export function SiteHeader({ active = "home" }: SiteHeaderProps) {
               {item.label}
             </Link>
           ))}
+          <Link href="/support" className={styles.navLink}>
+            Support
+          </Link>
         </nav>
       </div>
     </header>
