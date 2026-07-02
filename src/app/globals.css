@@ -54,8 +54,8 @@
 
 [data-profile="students-lecturers"] {
   --aifa-bg: var(--cadet-paper, #f1eadb);
-  --aifa-primary: var(--cadet-coral, #ff5a36);
-  --aifa-primary-hover: #d63e1e;
+  --aifa-primary: var(--cadet-accent, #2454cc);
+  --aifa-primary-hover: #163a86;
   --aifa-accent: #2f5bea;
   --aifa-text: var(--cadet-ink, #221e19);
   --aifa-muted: var(--cadet-muted, #6e6557);
@@ -72,8 +72,8 @@
   --cadet-body: #544c40;
   --cadet-muted: #6e6557;
   --cadet-faint: #9a8f7c;
-  --cadet-coral: #ff5a36;
-  --cadet-coral-shadow: #d63e1e;
+  --cadet-accent: #2454cc;
+  --cadet-accent-shadow: #163a86;
   --cadet-green: #1f9e6f;
   --cadet-green-text: #1f8a5f;
   --cadet-border: #e6decb;

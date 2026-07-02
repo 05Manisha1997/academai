@@ -1,6 +1,6 @@
 # Design Tokens — Cadet
 
-Warm-paper palette, one coral pop, functional status colors. Playful but trustworthy; spans ages 12–18.
+Warm-paper palette, one blue accent pop, functional status colors. Playful but trustworthy; spans ages 12–18.
 
 ## Color
 
@@ -30,9 +30,9 @@ Warm-paper palette, one coral pop, functional status colors. Playful but trustwo
 ### Brand & status
 | Token | Hex | Use |
 |---|---|---|
-| coral (pop) | `#FF5A36` | primary accent, CTAs, logo |
-| coral-shadow | `#D63E1E` | the `0 3px 0` hard shadow under coral buttons/logo |
-| coral-light | `#FF8466` | coral text on dark |
+| accent (pop) | `#2454CC` | primary accent, CTAs, logo |
+| accent-shadow | `#163A86` | the `0 3px 0` hard shadow under accent buttons/logo |
+| accent-light | `#6E92F0` | accent text on dark |
 | eu-blue | `#2F5BEA` | EU/compliance accent, mid-score gauge |
 | eu-blue-light | `#7FA0FF` | blue on dark |
 | green (safe) | `#1F9E6F` | safe status, completed, high score |
@@ -67,7 +67,7 @@ pills `20–30px` · cards `13–24px` · buttons `11–13px` · badges/dots `7�
 ## Shadow
 | Use | Value |
 |---|---|
-| coral button/logo | `0 3px 0 #D63E1E` (hard, no blur) |
+| accent button/logo | `0 3px 0 #163A86` (hard, no blur) |
 | card lift | `0 1px 2px rgba(60,45,20,.04)` |
 | composer | `0 6px 22px rgba(60,45,20,.06)` |
 | terminal / modal | `0 24px 60px rgba(60,45,20,.12–.14)` |
@@ -78,7 +78,7 @@ pills `20–30px` · cards `13–24px` · buttons `11–13px` · badges/dots `7�
 - `cadetPop` — `scale(.92)→1`, opacity 0→1, `.22s ease` — popup modal.
 - `cadetDot` — bounce + opacity, `1s infinite`, staggered 0/.15/.3s — typing indicator.
 - `cadetBlink` — opacity pulse — optional cursor.
-- Hover: coral buttons `translateY(-1px)`; active `translateY(1px)` + collapse shadow to `0 1px 0`.
+- Hover: accent buttons `translateY(-1px)`; active `translateY(1px)` + collapse shadow to `0 1px 0`.
 
 ## Layout (Sandbox)
 3-column: left **268px** (missions) · center **flex** (terminal) · right **300px** (coach), under a fixed top bar. Mission cards gap 8px; coach checklist gap 8px; example chips gap 8px. Generous 18–30px section padding.

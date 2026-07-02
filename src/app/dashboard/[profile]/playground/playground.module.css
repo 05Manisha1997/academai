@@ -17,7 +17,7 @@
 }
 
 .tabActive {
-  background: var(--cadet-coral, var(--aifa-primary));
-  border-color: var(--cadet-coral, var(--aifa-primary));
+  background: var(--cadet-accent, var(--aifa-primary));
+  border-color: var(--cadet-accent, var(--aifa-primary));
   color: #fff;
 }

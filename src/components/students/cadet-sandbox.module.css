@@ -28,13 +28,13 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: var(--cadet-coral);
+  background: var(--cadet-accent);
   color: #fff;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 3px 0 var(--cadet-coral-shadow);
+  box-shadow: 0 3px 0 var(--cadet-accent-shadow);
 }
 
 .brandText {
@@ -128,8 +128,8 @@
 
 .modeBtnActive {
   color: var(--cadet-ink);
-  border-color: var(--cadet-coral);
-  background: rgba(226, 93, 67, 0.08);
+  border-color: var(--cadet-accent);
+  background: rgba(36, 84, 204, 0.08);
 }
 
 .modeBtn:hover {
@@ -184,7 +184,7 @@
 
 .missionActive {
   background: #fff;
-  border-color: var(--cadet-coral);
+  border-color: var(--cadet-accent);
 }
 
 .missionDone {
@@ -207,7 +207,7 @@
 }
 
 .missionActive .missionNum {
-  background: var(--cadet-coral);
+  background: var(--cadet-accent);
   color: #fff;
 }
 
@@ -286,7 +286,7 @@
 }
 
 .bubbleLabelAgent {
-  color: var(--cadet-coral);
+  color: var(--cadet-accent);
 }
 
 .bubble {
@@ -320,7 +320,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--cadet-coral);
+  background: var(--cadet-accent);
   animation: cadetDot 1s infinite;
 }
 
@@ -379,11 +379,11 @@
 .runBtn {
   padding: 0.55rem 1.1rem;
   border-radius: 11px;
-  background: var(--cadet-coral);
+  background: var(--cadet-accent);
   color: #fff;
   font-weight: 700;
   font-size: 0.85rem;
-  box-shadow: 0 3px 0 var(--cadet-coral-shadow);
+  box-shadow: 0 3px 0 var(--cadet-accent-shadow);
   transition: transform 0.15s;
 }
 
@@ -393,7 +393,7 @@
 
 .runBtn:active:not(:disabled) {
   transform: translateY(1px);
-  box-shadow: 0 1px 0 var(--cadet-coral-shadow);
+  box-shadow: 0 1px 0 var(--cadet-accent-shadow);
 }
 
 .runBtn:disabled {
