@@ -38,8 +38,9 @@
 .safety {
   padding: 1.25rem;
   border-radius: var(--aifa-radius-lg);
-  background: #3d3d5c;
-  border: 2px solid var(--aifa-primary);
+  background: #1b365d;               /* navy de la marca */
+  border: 2px solid #fdb833;         /* dorado */
+  color: #ffffff;                    /* texto blanco */
   margin-bottom: 1.5rem;
   font-size: 1.15rem;
   line-height: 1.7;
@@ -47,7 +48,7 @@
 
 .safety strong {
   display: block;
-  color: var(--aifa-primary);
+  color: #fdb833;
   margin-bottom: 0.35rem;
 }
 
